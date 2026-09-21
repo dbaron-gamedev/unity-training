@@ -4,7 +4,7 @@ using System.Text;
 public class DebugOverlay : MonoBehaviour
 {
     [Header("Player")]
-    public Transform player;
+    public Transform coyotte;
     public int coinsCollected = 12;
     public int enemiesDefeated = 4;
 
@@ -13,6 +13,7 @@ public class DebugOverlay : MonoBehaviour
 
     [Header("Session")]
     public float sessionStartTime;
+    private float resetAmount;
 
     private bool showMenu = true;
     private float deltaTime;
@@ -37,6 +38,7 @@ public class DebugOverlay : MonoBehaviour
     private void OnDisable()
     {
         coyoteTime.onBallFellOnFloor.RemoveListener(HandleFall);
+        
     }
 
     private void Update()
@@ -57,18 +59,14 @@ public class DebugOverlay : MonoBehaviour
         var sb = new StringBuilder();
 
         // --- Player Telemetry ---
-        sb.AppendLine("=== PLAYER ===");
+        sb.AppendLine("=== COYOTTE ===");
 
-        if (player != null)
+      
+       if (coyotte !=null)
         {
-            sb.AppendLine($"Position: {player.position}");
-            
-            // TODO: The GetComponent is expensive, we need to cache it.
-            sb.AppendLine($"Speed: {player.GetComponent<Rigidbody>()?.linearVelocity.magnitude:F2}");
+            sb.AppendLine($"Respawn Amount:{resetAmount}");
         }
 
-        sb.AppendLine($"Coins Collected: {coinsCollected}");
-        sb.AppendLine($"Enemies Defeated: {enemiesDefeated}");
 
         // --- Session Telemetry ---
         sb.AppendLine("\n=== SESSION ===");
@@ -97,5 +95,6 @@ public class DebugOverlay : MonoBehaviour
     private void HandleFall()
     {
         Debug.Log("Ball fell (code listener)");
+        resetAmount++;
     }
 }

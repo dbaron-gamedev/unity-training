@@ -613,6 +613,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DebugMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 7576318862948089412, guid: e8c3f2aad4a61aa448fa258556010cf9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 877384344}
     - target: {fileID: 7637926603335807335, guid: e8c3f2aad4a61aa448fa258556010cf9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.16085
