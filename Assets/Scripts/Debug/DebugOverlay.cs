@@ -67,8 +67,7 @@ public class DebugOverlay : MonoBehaviour
             sb.AppendLine($"Speed: {player.GetComponent<Rigidbody>()?.linearVelocity.magnitude:F2}");
         }
 
-        sb.AppendLine($"Coins Collected: {coinsCollected}");
-        sb.AppendLine($"Enemies Defeated: {enemiesDefeated}");
+        sb.AppendLine($"Counter Reset: {coyoteTime.counterReset}");
 
         // --- Session Telemetry ---
         sb.AppendLine("\n=== SESSION ===");

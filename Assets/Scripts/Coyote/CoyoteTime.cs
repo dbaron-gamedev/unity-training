@@ -31,6 +31,7 @@ public class CoyoteTime : MonoBehaviour
     private Vector3 startPosition;
 
     private bool isJumping;
+    public int counterReset = 0;
 
     [Header("Events")]
     public UnityEvent onBallFellOnFloor;
@@ -135,6 +136,7 @@ public class CoyoteTime : MonoBehaviour
 
     void ResetBall()
     {
+        counterReset++;
         transform.position = startPosition;
         velocity = Vector3.zero;
         coyoteTimer = 0f;
