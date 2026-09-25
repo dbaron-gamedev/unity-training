@@ -9,7 +9,8 @@ public class Ball : MonoBehaviour
     public float leftBound = -8f;
     public float rightBound = 8f;
 
-    private Vector2 velocity;
+    public Vector2 velocity;
+    public float angle;
 
     private void Start()
     {
@@ -24,7 +25,7 @@ public class Ball : MonoBehaviour
 
     void Launch()
     {
-        float angle = Random.Range(-45f, 45f);
+        angle = Random.Range(-45f, 45f);
         float dirX = Random.value < 0.5f ? -1 : 1;
 
         velocity = new Vector2(
@@ -43,13 +44,14 @@ public class Ball : MonoBehaviour
         // Top / Bottom
         if (transform.position.y >= topBound && velocity.y > 0)
         {
-            velocity.y *= -1;
+            velocity.y *= -1.3f;
             transform.position = new Vector3(transform.position.x, topBound, 0);
+            
         }
 
         if (transform.position.y <= bottomBound && velocity.y < 0)
         {
-            velocity.y *= -1;
+            velocity.y *= -0.7f;
             transform.position = new Vector3(transform.position.x, bottomBound, 0);
         }
 
