@@ -9,7 +9,9 @@ public class Ball : MonoBehaviour
     public float leftBound = -8f;
     public float rightBound = 8f;
 
-    private Vector2 velocity;
+    public Vector2 velocity;
+    public float angle;
+    public float dirX;
 
     private void Start()
     {
@@ -24,8 +26,8 @@ public class Ball : MonoBehaviour
 
     void Launch()
     {
-        float angle = Random.Range(-45f, 45f);
-        float dirX = Random.value < 0.5f ? -1 : 1;
+        angle = Random.Range(-45f, 45f);
+        dirX = Random.value < 0.5f ? -1 : 1;
 
         velocity = new Vector2(
             dirX,
@@ -44,12 +46,14 @@ public class Ball : MonoBehaviour
         if (transform.position.y >= topBound && velocity.y > 0)
         {
             velocity.y *= -1;
+            velocity.y *= 2;
             transform.position = new Vector3(transform.position.x, topBound, 0);
         }
 
         if (transform.position.y <= bottomBound && velocity.y < 0)
         {
             velocity.y *= -1;
+            velocity.y /= 2;
             transform.position = new Vector3(transform.position.x, bottomBound, 0);
         }
 
@@ -64,6 +68,15 @@ public class Ball : MonoBehaviour
         {
             velocity.x *= -1;
             transform.position = new Vector3(leftBound, transform.position.y, 0);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Player Collide !");
+            velocity.x *= -1;
         }
     }
 }
