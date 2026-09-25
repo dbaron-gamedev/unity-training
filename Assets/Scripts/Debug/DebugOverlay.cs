@@ -5,8 +5,6 @@ public class DebugOverlay : MonoBehaviour
 {
     [Header("Player")]
     public Transform player;
-    public int coinsCollected = 12;
-    public int enemiesDefeated = 4;
 
     [Header("Performance")]
     public bool showFPS = true;
@@ -16,6 +14,7 @@ public class DebugOverlay : MonoBehaviour
 
     private bool showMenu = true;
     private float deltaTime;
+    private int resetamount = 0;
 
     private CoyoteTime coyoteTime;
 
@@ -56,20 +55,6 @@ public class DebugOverlay : MonoBehaviour
 
         var sb = new StringBuilder();
 
-        // --- Player Telemetry ---
-        sb.AppendLine("=== PLAYER ===");
-
-        if (player != null)
-        {
-            sb.AppendLine($"Position: {player.position}");
-            
-            // TODO: The GetComponent is expensive, we need to cache it.
-            sb.AppendLine($"Speed: {player.GetComponent<Rigidbody>()?.linearVelocity.magnitude:F2}");
-        }
-
-        sb.AppendLine($"Coins Collected: {coinsCollected}");
-        sb.AppendLine($"Enemies Defeated: {enemiesDefeated}");
-
         // --- Session Telemetry ---
         sb.AppendLine("\n=== SESSION ===");
 
@@ -77,6 +62,7 @@ public class DebugOverlay : MonoBehaviour
 
         sb.AppendLine($"Session Time: {sessionDuration:F1}s");
         sb.AppendLine($"Current Scene: {UnityEngine.SceneManagement.SceneManager.GetActiveScene().name}");
+        sb.AppendLine($"Jump Amount: {resetamount}");
 
         // --- Performance Telemetry ---
         sb.AppendLine("\n=== PERFORMANCE ===");
@@ -97,5 +83,6 @@ public class DebugOverlay : MonoBehaviour
     private void HandleFall()
     {
         Debug.Log("Ball fell (code listener)");
+        resetamount++;
     }
 }
