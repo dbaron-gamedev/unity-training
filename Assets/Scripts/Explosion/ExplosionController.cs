@@ -18,7 +18,7 @@ public class ExplosionController : MonoBehaviour
 
     void Explode()
     {
-        Rigidbody[] bodies = FindObjectsOfType<Rigidbody>();
+        Rigidbody[] bodies = FindObjectsByType<Rigidbody>();
 
         foreach (Rigidbody rb in bodies)
         {

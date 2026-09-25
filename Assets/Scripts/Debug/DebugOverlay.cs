@@ -1,12 +1,11 @@
 using UnityEngine;
 using System.Text;
+using System;
 
 public class DebugOverlay : MonoBehaviour
 {
     [Header("Player")]
-    public Transform player;
-    public int coinsCollected = 12;
-    public int enemiesDefeated = 4;
+    public Transform ballTransform;
 
     [Header("Performance")]
     public bool showFPS = true;
@@ -17,26 +16,16 @@ public class DebugOverlay : MonoBehaviour
     private bool showMenu = true;
     private float deltaTime;
 
-    private CoyoteTime coyoteTime;
+    private Ball ball;
 
     private void Awake()
     {
-        coyoteTime = FindAnyObjectByType<CoyoteTime>();
+        ball = FindAnyObjectByType<Ball>();
     }
 
     private void Start()
     {
         sessionStartTime = Time.time;
-    }
-
-    private void OnEnable()
-    {
-        coyoteTime.onBallFellOnFloor.AddListener(HandleFall);
-    }
-
-    private void OnDisable()
-    {
-        coyoteTime.onBallFellOnFloor.RemoveListener(HandleFall);
     }
 
     private void Update()
@@ -59,16 +48,18 @@ public class DebugOverlay : MonoBehaviour
         // --- Player Telemetry ---
         sb.AppendLine("=== PLAYER ===");
 
-        if (player != null)
+        if (ballTransform != null)
         {
-            sb.AppendLine($"Position: {player.position}");
-            
-            // TODO: The GetComponent is expensive, we need to cache it.
-            sb.AppendLine($"Speed: {player.GetComponent<Rigidbody>()?.linearVelocity.magnitude:F2}");
+            sb.AppendLine($"Position: {ballTransform.position}");
+            sb.AppendLine($"Speed: {ball.speed}"); 
+            sb.AppendLine($"Velocity X: {ball.velocity.x}");
+            sb.AppendLine($"Velocity Y: {ball.velocity.y}");
+            sb.AppendLine($"Angle: {ball.angle}°");
         }
-
-        sb.AppendLine($"Coins Collected: {coinsCollected}");
-        sb.AppendLine($"Enemies Defeated: {enemiesDefeated}");
+        else
+        {
+            sb.AppendLine("ball not assigned.");
+        }
 
         // --- Session Telemetry ---
         sb.AppendLine("\n=== SESSION ===");
@@ -91,11 +82,5 @@ public class DebugOverlay : MonoBehaviour
         sb.AppendLine($"Memory Usage: {(System.GC.GetTotalMemory(false) / 1024 / 1024)} MB");
 
         GUI.Label(new Rect(20, 40, 300, 220), sb.ToString());
-    }
-
-    // TODO: We need to display the number of times the ball falls on the floor per run.
-    private void HandleFall()
-    {
-        Debug.Log("Ball fell (code listener)");
     }
 }
