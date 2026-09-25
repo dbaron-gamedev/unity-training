@@ -5,6 +5,10 @@ public class DebugOverlayPong : MonoBehaviour
 {
     [Header("Ball")]
     public Transform ball;
+    public Ball ball_script;
+
+    public bool staticValue = true;
+    public bool variableValue = true;
 
     [Header("Performance")]
     public bool showFPS = true;
@@ -59,10 +63,26 @@ public class DebugOverlayPong : MonoBehaviour
 
         if (ball != null)
         {
-            sb.AppendLine($"Position: {ball.position}");
-            
+            if (staticValue)
+            {
+                sb.AppendLine($"Start Angle: {ball_script.angle}");
+
+                sb.AppendLine($"Start DirX: {ball_script.dirX}");
+
+                sb.AppendLine($"Speed: {ball_script.speed}");
+
+                sb.AppendLine($"Bound: {ball_script.topBound}, {ball_script.bottomBound}, {ball_script.leftBound}, {ball_script.rightBound}");
+            }
+
+            if (variableValue)
+            {
+                sb.AppendLine($"Position: {ball.position}");
+
+                sb.AppendLine($"Velocity: {ball_script.velocity}");
+            }
+       
             // TODO: The GetComponent is expensive, we need to cache it.
-            sb.AppendLine($"Speed: {ball.GetComponent<Rigidbody>()?.linearVelocity.magnitude:F2}");
+            //sb.AppendLine($"Speed: {ball.GetComponent<Rigidbody>()?.linearVelocity.magnitude:F2}");
         }
 
         // --- Session Telemetry ---
