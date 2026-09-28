@@ -12,6 +12,8 @@ public class DebugTerminal : MonoBehaviour
     public KeyCode toggleKey = KeyCode.BackQuote;
     public int maxLogs = 100;
 
+    public GameObject ball_prefab;
+    
     private bool isOpen;
     private string input = "";
 
@@ -165,7 +167,9 @@ public class DebugTerminal : MonoBehaviour
         var split = commandLine.Split(' ');
         var command = split[0].ToLower();
         var args = new string[Math.Max(0, split.Length - 1)];
-
+    
+        
+        
         Array.Copy(split, 1, args, 0, args.Length);
 
         if (commands.TryGetValue(command, out var action))
@@ -207,6 +211,46 @@ public class DebugTerminal : MonoBehaviour
             {
                 Time.timeScale = value;
                 Log("TimeScale set to " + value);
+            }
+        };
+        
+        commands["del"] = args =>
+        {
+            if (args.Length == 0)
+            {
+                Log("Usage: del ObjName");
+                return;
+            }
+            
+            GameObject obj = GameObject.Find(args[0]);
+
+            if (obj != null) 
+            {
+                Destroy(obj);
+            }
+            
+        };
+        
+        commands["spawn"] = args =>
+        {
+            if (args.Length == 0)
+            {
+                Log("Usage: spawn ObjName");
+                return;
+            }
+            
+            GameObject obj = GameObject.Find(args[0]);
+
+            if (obj == null)
+            {
+                Debug.Log("Spawn");
+                GameObject new_obj = Instantiate(ball_prefab, Vector3.zero, Quaternion.identity);
+                new_obj.name = args[0];
+            }
+
+            else
+            {
+                Debug.Log("Can't Spawn, already exists");
             }
         };
 
