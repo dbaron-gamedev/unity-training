@@ -171,6 +171,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8079113060331953384, guid: 04bd381d90cca4c3c8815a714e5a70ec, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 410991944}
+    - target: {fileID: 8079113060331953384, guid: 04bd381d90cca4c3c8815a714e5a70ec, type: 3}
+      propertyPath: ballScript
+      value: 
+      objectReference: {fileID: 410991945}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -350,7 +358,7 @@ MonoBehaviour:
   rightBound: 10
 --- !u!212 &410991946
 SpriteRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -407,6 +415,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!4 &410991947
 Transform:
   m_ObjectHideFlags: 0

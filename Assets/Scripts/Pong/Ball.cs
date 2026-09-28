@@ -22,7 +22,7 @@ public class Ball : MonoBehaviour
         CheckWallBounce();
     }
 
-    void Launch()
+    public void Launch()
     {
         float angle = Random.Range(-45f, 45f);
         float dirX = Random.value < 0.5f ? -1 : 1;
