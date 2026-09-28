@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DebugSceneMenu : MonoBehaviour
+public class DebugMenu : MonoBehaviour
 {
     [Header("Menu Settings")]
     public KeyCode toggleKey = KeyCode.F2;
