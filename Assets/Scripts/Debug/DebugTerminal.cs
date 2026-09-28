@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 
 public class DebugTerminal : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class DebugTerminal : MonoBehaviour
     [Header("Console")]
     public KeyCode toggleKey = KeyCode.BackQuote;
     public int maxLogs = 100;
+
+    [Header("Ball Settings")]
+
+    public GameObject ball;
 
     private bool isOpen;
     private string input = "";
@@ -225,6 +230,27 @@ public class DebugTerminal : MonoBehaviour
         {
             Scene current = SceneManager.GetActiveScene();
             SceneManager.LoadScene(current.name);
+        };
+
+        commands["kill"] = args =>
+        {
+            
+                Destroy(GameObject.Find(args[0]));
+        };
+
+        commands["spawn"] = args =>
+        {
+            if (args.Length == 0)
+            {
+                Log("Usage: spawn Ball");
+                return;
+            }
+
+            if (args[0] == "Ball")
+            {
+                GameObject newBall = Instantiate(ball, Vector3.zero, Quaternion.identity);
+                newBall.name = "Ball";
+            }
         };
 
         commands["quit"] = args =>
