@@ -9,6 +9,8 @@ public class DebugMenu : MonoBehaviour
     
     private Vector2 scrollPosition;
 
+    public GameObject ball_prefab;
+
     private void Update()
     {
         if (Input.GetKeyDown(toggleKey)) 
@@ -34,9 +36,45 @@ public class DebugMenu : MonoBehaviour
                 SceneManager.LoadScene(i);
         }
 
+        GUILayout.Label("Actions:");
+
+        if (GUILayout.Button("Del Ball", GUILayout.Height(30)))
+            DelBall();
+        if (GUILayout.Button("Spawn Ball", GUILayout.Height(30)))
+            SpawnBall();
+
         GUILayout.EndScrollView();
         GUILayout.Space(10);
         GUILayout.Label("Press F1 to toggle menu");
         GUILayout.EndArea();
+    }
+
+
+    private void DelBall()
+    {
+        Debug.Log("Del");
+        GameObject ball = GameObject.Find("Ball");
+
+        if (ball != null)
+        {
+            Destroy(ball);
+        }
+    }
+
+    private void SpawnBall()
+    {
+        GameObject ball = GameObject.Find("Ball");
+
+        if (ball == null)
+        {
+            Debug.Log("Spawn");
+            GameObject new_ball = Instantiate(ball_prefab, Vector3.zero, Quaternion.identity);
+            new_ball.name = "Ball";
+        }
+
+        else
+        {
+            Debug.Log("Can't Spawn, already exists");
+        }
     }
 }
