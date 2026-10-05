@@ -2,24 +2,37 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public float speed = 8f;
+    public float speed =8f;
 
     public float topBound = 4.5f;
     public float bottomBound = -4.5f;
     public float leftBound = -8f;
     public float rightBound = 8f;
-
-    private Vector2 velocity;
+    public float speedMultiplierTop = 1.1f;
+    public float speedMultiplierBottom = .09f;
+    public Vector2 velocity;
 
     private void Start()
     {
         Launch();
-    }
+        if(speedMultiplierTop < 0)
+        {
+            speedMultiplierTop = -speedMultiplierTop;}
+        if(speedMultiplierBottom < 0)
+        {
+            speedMultiplierBottom = -speedMultiplierBottom;
+        }
+    }   
+    
+       
+    
 
     void Update()
     {
         Move();
         CheckWallBounce();
+
+       
     }
 
     void Launch()
@@ -43,14 +56,19 @@ public class Ball : MonoBehaviour
         // Top / Bottom
         if (transform.position.y >= topBound && velocity.y > 0)
         {
-            velocity.y *= -1;
+            
+            velocity.y *= -speedMultiplierTop;
             transform.position = new Vector3(transform.position.x, topBound, 0);
+            
+            speed*=speedMultiplierTop;
         }
 
         if (transform.position.y <= bottomBound && velocity.y < 0)
         {
-            velocity.y *= -1;
+            velocity.y *= -speedMultiplierBottom;
             transform.position = new Vector3(transform.position.x, bottomBound, 0);
+            
+            speed*=speedMultiplierBottom;
         }
 
         // Left / Right
@@ -65,5 +83,11 @@ public class Ball : MonoBehaviour
             velocity.x *= -1;
             transform.position = new Vector3(leftBound, transform.position.y, 0);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        velocity.x = -velocity.x;
+        velocity.y = -velocity.y;
     }
 }
