@@ -1,16 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DebugMenu : MonoBehaviour
+public class DebugSceneMenu : MonoBehaviour
 {
     [Header("Menu Settings")]
-    public bool showMenu = true;
     public KeyCode toggleKey = KeyCode.F2;
-    
+    public bool showMenu = true;
     private Vector2 scrollPosition;
 
     private void Update()
     {
+        // Toggle menu visibility
         if (Input.GetKeyDown(toggleKey)) 
             showMenu = !showMenu;
     }
