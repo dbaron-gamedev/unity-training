@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class ExplosionController : MonoBehaviour
 {
@@ -33,11 +34,28 @@ public class ExplosionController : MonoBehaviour
 
         Destroy(gameObject);
     }
+    
+    //Detect all object inside gizmo
+    bool isHits()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(
+            transform.position,
+            explosionRadius
+        );
+
+        foreach (Collider col in hitColliders)
+        {
+            if (col.transform.IsChildOf(transform))
+                continue;
+            return true;
+        }
+        return false;
+    }
 
     // 💥 Gizmo visualization (always visible in editor if gizmos enabled)
     void OnDrawGizmos()
     {
-        DrawExplosionRadius(Color.red);
+        DrawExplosionRadius(isHits() ? Color.green : Color.red);
     }
 
     // 🎯 Only shows when selected (cleaner for big scenes)
@@ -55,5 +73,6 @@ public class ExplosionController : MonoBehaviour
 
         // Optional: draw a center marker
         Gizmos.DrawSphere(transform.position, 0.1f);
+        
     }
 }
