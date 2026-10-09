@@ -3,6 +3,8 @@ using UnityEngine.Events;
 
 public class CoyoteTime : MonoBehaviour
 {
+    public Material matColor;
+    
     [Header("Movement")]
     public float speed = 5f;
 
@@ -17,7 +19,7 @@ public class CoyoteTime : MonoBehaviour
     [Header("Coyote Time")]
     public float coyoteTime = 0.15f;
     private float coyoteTimer;
-
+    
     [Header("Jump Buffer")]
     public float jumpBufferTime = 0.1f;
     private float jumpBufferTimer;
@@ -26,6 +28,9 @@ public class CoyoteTime : MonoBehaviour
     public float platformY = 0f;
     public float platformEdgeX = 5f;
     public float floorY = -5f;
+    
+    public float platformRedEdgeX = 7f;
+    public float platformRedEdgeEndX = 18f;
 
     private Vector3 velocity;
     private Vector3 startPosition;
@@ -71,7 +76,7 @@ public class CoyoteTime : MonoBehaviour
         // =========================
         // PLATFORM CONSTRAINT
         // =========================
-        bool onPlatform = pos.x <= platformEdgeX;
+        bool onPlatform = pos.x <= platformEdgeX || pos.x >= platformRedEdgeX && pos.x <= platformRedEdgeEndX;
 
         if (onPlatform)
         {
@@ -82,6 +87,8 @@ public class CoyoteTime : MonoBehaviour
 
                 isJumping = false;
                 coyoteTimer = coyoteTime;
+                
+                matColor.color = Color.green;
             }
         }
 
@@ -91,6 +98,8 @@ public class CoyoteTime : MonoBehaviour
         if (!onPlatform || pos.y > platformY + 0.01f)
         {
             coyoteTimer -= dt;
+            
+            matColor.color = Color.red;
         }
 
         // =========================
@@ -98,6 +107,7 @@ public class CoyoteTime : MonoBehaviour
         // =========================
         if (jumpBufferTimer > 0f && coyoteTimer > 0f)
         {
+            
             if (onPlatform)
             {
                 // Normal jump
@@ -115,6 +125,11 @@ public class CoyoteTime : MonoBehaviour
             isJumping = true;
         }
 
+        if (isJumping)
+        {
+            matColor.color = Color.blue;
+        }
+        
         // =========================
         // FLOOR RESET
         // =========================
