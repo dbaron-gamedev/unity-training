@@ -5,6 +5,7 @@ public class ExplosionController : MonoBehaviour
     public float explosionForce = 800f;
     public float explosionRadius = 5f;
     public float upwardsModifier = 1f;
+    public int explosionDamage = 10;
 
     public KeyCode triggerKey = KeyCode.Space;
 
@@ -16,7 +17,7 @@ public class ExplosionController : MonoBehaviour
         }
     }
 
-    void Explode()
+    public void Explode()
     {
         Rigidbody[] bodies = FindObjectsOfType<Rigidbody>();
 
@@ -29,6 +30,9 @@ public class ExplosionController : MonoBehaviour
                 upwardsModifier,
                 ForceMode.Impulse
             );
+
+            if (rb.TryGetComponent<Health>(out Health health))
+                health.TakeDamage(50);
         }
 
         Destroy(gameObject);
