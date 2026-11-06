@@ -2,10 +2,15 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public float currentHealth = 100f;
+    [SerializeField]
+    private float currentHealth;
 
-    public void TakeDamage(float damage)
+    [SerializeField]
+    private DamageType currentDamage;
+
+    public void TakeDamage(float damage, DamageType damageType)
     {
+        currentDamage = damageType;
         currentHealth = Mathf.Max(0f, currentHealth - damage);
     }
 }

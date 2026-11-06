@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class ExplosionController : MonoBehaviour
 {
@@ -9,17 +10,26 @@ public class ExplosionController : MonoBehaviour
 
     public KeyCode triggerKey = KeyCode.Space;
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(triggerKey))
-        {
-            Explode();
-        }
+            StartCoroutine(ExplosionSequence());
     }
 
-    public void Explode()
+    private IEnumerator ExplosionSequence()
     {
-        Rigidbody[] bodies = FindObjectsOfType<Rigidbody>();
+        // TODO: Implement the EmitFlash() method to create a visual flash effect for the explosion.
+
+        yield return new WaitForSeconds(0.1f);
+        TriggerBlast();
+
+        // TODO: Implement the EmitSmoke() method to create a smoke effect after the explosion.
+        // TODO: Implement the SetDamageZone() method to define the area affected by the explosion for damage calculations.
+    }
+
+    public void TriggerBlast()
+    {
+        Rigidbody[] bodies = FindObjectsByType<Rigidbody>();
 
         foreach (Rigidbody rb in bodies)
         {
@@ -32,25 +42,23 @@ public class ExplosionController : MonoBehaviour
             );
 
             if (rb.TryGetComponent<Health>(out Health health))
-                health.TakeDamage(50);
+                health.TakeDamage(50, DamageType.Blast);
         }
 
         Destroy(gameObject);
     }
 
-    // 💥 Gizmo visualization (always visible in editor if gizmos enabled)
-    void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         DrawExplosionRadius(Color.red);
     }
 
-    // 🎯 Only shows when selected (cleaner for big scenes)
-    void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
         DrawExplosionRadius(Color.yellow);
     }
 
-    void DrawExplosionRadius(Color color)
+    private void DrawExplosionRadius(Color color)
     {
         Gizmos.color = color;
 

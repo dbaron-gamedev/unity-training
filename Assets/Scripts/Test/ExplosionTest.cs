@@ -24,7 +24,7 @@ public class ExplosionTest
         
         var initialVelocity = sphere.linearVelocity;    
 
-        explosionController.Explode();
+        //explosionController.Explode();
 
         yield return new WaitForFixedUpdate();
 
