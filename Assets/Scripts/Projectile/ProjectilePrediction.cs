@@ -64,7 +64,7 @@ public class ProjectilePrediction : MonoBehaviour
         {
             _lineRenderer.SetPosition(i, position);
 
-            // Gravity changes velocity
+            // Gravity changes velocity at default Unity value (Gravity = -9.81 m/s²)
             velocity += Physics.gravity * timeStep;
 
             // Velocity changes position
