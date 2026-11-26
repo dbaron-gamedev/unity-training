@@ -1,0 +1,17 @@
+{
+    "naming": {
+        "models": "SM_",
+        "textures": "T_",
+        "materials": "M_",
+        "prefabs": "PF_"
+    },
+    "textures": {
+        "max_width": 2048,
+        "max_height": 2048,
+        "allowed_formats": [".png", ".tga"]
+    },
+    "models": {
+        "max_triangles": 10000,
+        "allowed_formats": [".fbx"]
+    }
+}

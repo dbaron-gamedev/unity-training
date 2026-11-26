@@ -1,27 +1,18 @@
-# Unity CLI Environment
+# Unity Asset Quality Control Pipeline
 
-## Official References
+## Environment
 
-- https://docs.unity.com/en-us/unity-cli/use-unity-cli
-- https://docs.unity.com/en-us/unity-cli/unity-cli-reference
-- https://docs.unity.com/en-us/unity-production-pipeline/local-tools-cli/unity-cli-pipeline-package
+- The working directory is the root of a Unity project.
+- Unity assets are located in Assets/.
+- Production standards are in Pipeline/standards.json.
+- Generated artifacts must be stored in Pipeline/output/.
 
-## Instructions
+## Rules
 
-- Use Unity CLI for all Unity-related operations.
-- Prefer official Unity documentation over assumptions.
-- Verify that Unity CLI is installed and accessible before proceeding.
-- Open the Unity project using Unity CLI if it is not already open.
-- Verify that the Unity Pipeline package is installed and its server is running in the Unity Editor before executing Editor commands.
-- Discover available Editor commands using `unity command`.
-- Use `--help` and official documentation to verify unfamiliar commands and arguments.
-- Never invent commands, parameters, or unsupported functionality.
-- Stop and report an error if Unity CLI or the required Unity Pipeline connection is unavailable.
-
-## Restrictions
-
-- Operate in read-only mode unless explicitly authorized otherwise.
-- Do not modify project assets, scene contents, or project settings.
-- Do not delete or overwrite existing files.
-- Allow non-destructive operations such as inspecting scenes, querying objects, and capturing screenshots.
-- Report command failures instead of assuming an operation succeeded.
+- Never modify or delete Unity assets.
+- Never modify Unity metadata files.
+- Never invent asset properties or measurements.
+- Report unavailable measurements as unknown.
+- Use relative paths when referencing assets.
+- Use valid JSON for structured outputs.
+- Do not report a task as successful if it failed.
