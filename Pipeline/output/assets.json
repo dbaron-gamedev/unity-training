@@ -1,4 +1,5 @@
 {
+    "count":  25,
     "assets":  [
                    {
                        "name":  "Blue.mat",
@@ -175,6 +176,5 @@
                        "extension":  ".mat",
                        "size_bytes":  2889
                    }
-               ],
-    "total":  25
+               ]
 }

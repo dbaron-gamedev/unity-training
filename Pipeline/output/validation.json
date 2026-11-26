@@ -1,362 +1,357 @@
 {
+  "asset_count": 25,
   "summary": {
-    "status": "violations_found",
-    "compliant": false,
-    "assetsValidated": 25,
-    "violations": 27,
-    "measurements": 7,
-    "skippedChecks": 0,
-    "failedChecks": 0
+    "violation_count": 27,
+    "skipped_check_count": 18,
+    "failed_check_count": 0,
+    "completed_checks": {
+      "naming": 25,
+      "format": 7,
+      "texture_dimensions": 2,
+      "model_triangles": 5
+    }
   },
-  "checksPerformed": [
-    {
-      "check": "naming",
-      "assetCount": 25,
-      "standard": "naming prefixes by asset type (filename stem)"
-    },
-    {
-      "check": "supported_formats",
-      "assetCount": 7,
-      "standard": "textures.allowed_formats and models.allowed_formats"
-    },
-    {
-      "check": "texture_dimensions",
-      "assetCount": 2,
-      "standard": "textures.max_width and textures.max_height"
-    },
-    {
-      "check": "model_triangles",
-      "assetCount": 5,
-      "standard": "models.max_triangles"
-    }
-  ],
-  "skippedChecks": [],
-  "failedChecks": [],
-  "measurements": [
-    {
-      "assetPath": "Assets/Scenes/Baking/BackgroundMesh.fbx",
-      "assetType": "model",
-      "triangles": 1792,
-      "meshGeometryTriangleCounts": [
-        1792
-      ],
-      "method": "Binary FBX PolygonVertexIndex polygon triangulation (sum of polygons vertex_count - 2 across mesh geometries; not Unity import triangulation)"
-    },
-    {
-      "assetPath": "Assets/Scenes/Baking/ReflectionProbe-0.exr",
-      "assetType": "texture",
-      "width": 768,
-      "height": 128,
-      "method": "OpenEXR dataWindow"
-    },
-    {
-      "assetPath": "Assets/Scenes/Baking/SamplesFixture.fbx",
-      "assetType": "model",
-      "triangles": 140,
-      "meshGeometryTriangleCounts": [
-        140
-      ],
-      "method": "Binary FBX PolygonVertexIndex polygon triangulation (sum of polygons vertex_count - 2 across mesh geometries; not Unity import triangulation)"
-    },
-    {
-      "assetPath": "Assets/Scenes/Baking/SamplesFloorSpotlight.fbx",
-      "assetType": "model",
-      "triangles": 724,
-      "meshGeometryTriangleCounts": [
-        420,
-        304
-      ],
-      "method": "Binary FBX PolygonVertexIndex polygon triangulation (sum of polygons vertex_count - 2 across mesh geometries; not Unity import triangulation)"
-    },
-    {
-      "assetPath": "Assets/Scenes/Baking/SamplesSpotlightModel.fbx",
-      "assetType": "model",
-      "triangles": 7002,
-      "meshGeometryTriangleCounts": [
-        244,
-        3462,
-        284,
-        284,
-        284,
-        168,
-        2268,
-        8
-      ],
-      "method": "Binary FBX PolygonVertexIndex polygon triangulation (sum of polygons vertex_count - 2 across mesh geometries; not Unity import triangulation)"
-    },
-    {
-      "assetPath": "Assets/Scenes/Baking/UnityMaterialBall.fbx",
-      "assetType": "model",
-      "triangles": 39270,
-      "meshGeometryTriangleCounts": [
-        1712,
-        6884,
-        1392,
-        5710,
-        5044,
-        2240,
-        3150,
-        1528,
-        1948,
-        7950,
-        1712
-      ],
-      "method": "Binary FBX PolygonVertexIndex polygon triangulation (sum of polygons vertex_count - 2 across mesh geometries; not Unity import triangulation)"
-    },
-    {
-      "assetPath": "Assets/Sprites/Basketball.png",
-      "assetType": "texture",
-      "width": 1280,
-      "height": 1273,
-      "method": "PNG IHDR"
-    }
-  ],
   "violations": [
     {
-      "id": "VAL-53d3b2004a24",
-      "assetPath": "Assets/Materials/Blue.mat",
-      "assetType": "material",
-      "rule": "naming.materials",
-      "observed": "Blue.mat",
-      "expected": "filename stem begins with M_",
-      "verified": true
+      "path": "Assets/Materials/Blue.mat",
+      "check": "naming",
+      "actual": "Blue.mat",
+      "expected_prefix": "M_",
+      "message": "Filename does not start with M_"
     },
     {
-      "id": "VAL-d150e592a6d1",
-      "assetPath": "Assets/Materials/Debug.mat",
-      "assetType": "material",
-      "rule": "naming.materials",
-      "observed": "Debug.mat",
-      "expected": "filename stem begins with M_",
-      "verified": true
+      "path": "Assets/Materials/Debug.mat",
+      "check": "naming",
+      "actual": "Debug.mat",
+      "expected_prefix": "M_",
+      "message": "Filename does not start with M_"
     },
     {
-      "id": "VAL-9fbf0887dc3f",
-      "assetPath": "Assets/Materials/Green.mat",
-      "assetType": "material",
-      "rule": "naming.materials",
-      "observed": "Green.mat",
-      "expected": "filename stem begins with M_",
-      "verified": true
+      "path": "Assets/Materials/Green.mat",
+      "check": "naming",
+      "actual": "Green.mat",
+      "expected_prefix": "M_",
+      "message": "Filename does not start with M_"
     },
     {
-      "id": "VAL-5bfcb0a19aaa",
-      "assetPath": "Assets/Materials/Purple.mat",
-      "assetType": "material",
-      "rule": "naming.materials",
-      "observed": "Purple.mat",
-      "expected": "filename stem begins with M_",
-      "verified": true
+      "path": "Assets/Materials/Purple.mat",
+      "check": "naming",
+      "actual": "Purple.mat",
+      "expected_prefix": "M_",
+      "message": "Filename does not start with M_"
     },
     {
-      "id": "VAL-38db61f5b43e",
-      "assetPath": "Assets/Materials/Red.mat",
-      "assetType": "material",
-      "rule": "naming.materials",
-      "observed": "Red.mat",
-      "expected": "filename stem begins with M_",
-      "verified": true
+      "path": "Assets/Materials/Red.mat",
+      "check": "naming",
+      "actual": "Red.mat",
+      "expected_prefix": "M_",
+      "message": "Filename does not start with M_"
     },
     {
-      "id": "VAL-c5a4fee7540f",
-      "assetPath": "Assets/Materials/Yellow.mat",
-      "assetType": "material",
-      "rule": "naming.materials",
-      "observed": "Yellow.mat",
-      "expected": "filename stem begins with M_",
-      "verified": true
+      "path": "Assets/Materials/Yellow.mat",
+      "check": "naming",
+      "actual": "Yellow.mat",
+      "expected_prefix": "M_",
+      "message": "Filename does not start with M_"
     },
     {
-      "id": "VAL-6d9f03d0e586",
-      "assetPath": "Assets/Prefabs/Entity/Projectile.prefab",
-      "assetType": "prefab",
-      "rule": "naming.prefabs",
-      "observed": "Projectile.prefab",
-      "expected": "filename stem begins with PF_",
-      "verified": true
+      "path": "Assets/Prefabs/Entity/Projectile.prefab",
+      "check": "naming",
+      "actual": "Projectile.prefab",
+      "expected_prefix": "PF_",
+      "message": "Filename does not start with PF_"
     },
     {
-      "id": "VAL-a1c38bf01d74",
-      "assetPath": "Assets/Prefabs/Menu/DebugConsole.prefab",
-      "assetType": "prefab",
-      "rule": "naming.prefabs",
-      "observed": "DebugConsole.prefab",
-      "expected": "filename stem begins with PF_",
-      "verified": true
+      "path": "Assets/Prefabs/Menu/DebugConsole.prefab",
+      "check": "naming",
+      "actual": "DebugConsole.prefab",
+      "expected_prefix": "PF_",
+      "message": "Filename does not start with PF_"
     },
     {
-      "id": "VAL-b94cca008d70",
-      "assetPath": "Assets/Prefabs/Menu/DebugMenu.prefab",
-      "assetType": "prefab",
-      "rule": "naming.prefabs",
-      "observed": "DebugMenu.prefab",
-      "expected": "filename stem begins with PF_",
-      "verified": true
+      "path": "Assets/Prefabs/Menu/DebugMenu.prefab",
+      "check": "naming",
+      "actual": "DebugMenu.prefab",
+      "expected_prefix": "PF_",
+      "message": "Filename does not start with PF_"
     },
     {
-      "id": "VAL-99dee97e2058",
-      "assetPath": "Assets/Scenes/Baking/BackgroundMesh.fbx",
-      "assetType": "model",
-      "rule": "naming.models",
-      "observed": "BackgroundMesh.fbx",
-      "expected": "filename stem begins with SM_",
-      "verified": true
+      "path": "Assets/Scenes/Baking/BackgroundMesh.fbx",
+      "check": "naming",
+      "actual": "BackgroundMesh.fbx",
+      "expected_prefix": "SM_",
+      "message": "Filename does not start with SM_"
     },
     {
-      "id": "VAL-656e98358461",
-      "assetPath": "Assets/Scenes/Baking/Black.mat",
-      "assetType": "material",
-      "rule": "naming.materials",
-      "observed": "Black.mat",
-      "expected": "filename stem begins with M_",
-      "verified": true
+      "path": "Assets/Scenes/Baking/Black.mat",
+      "check": "naming",
+      "actual": "Black.mat",
+      "expected_prefix": "M_",
+      "message": "Filename does not start with M_"
     },
     {
-      "id": "VAL-8ccae9570b73",
-      "assetPath": "Assets/Scenes/Baking/Emissive.mat",
-      "assetType": "material",
-      "rule": "naming.materials",
-      "observed": "Emissive.mat",
-      "expected": "filename stem begins with M_",
-      "verified": true
+      "path": "Assets/Scenes/Baking/Emissive.mat",
+      "check": "naming",
+      "actual": "Emissive.mat",
+      "expected_prefix": "M_",
+      "message": "Filename does not start with M_"
     },
     {
-      "id": "VAL-b38231c865ce",
-      "assetPath": "Assets/Scenes/Baking/Gold.mat",
-      "assetType": "material",
-      "rule": "naming.materials",
-      "observed": "Gold.mat",
-      "expected": "filename stem begins with M_",
-      "verified": true
+      "path": "Assets/Scenes/Baking/Gold.mat",
+      "check": "naming",
+      "actual": "Gold.mat",
+      "expected_prefix": "M_",
+      "message": "Filename does not start with M_"
     },
     {
-      "id": "VAL-357a68926b89",
-      "assetPath": "Assets/Scenes/Baking/Ground.mat",
-      "assetType": "material",
-      "rule": "naming.materials",
-      "observed": "Ground.mat",
-      "expected": "filename stem begins with M_",
-      "verified": true
+      "path": "Assets/Scenes/Baking/Ground.mat",
+      "check": "naming",
+      "actual": "Ground.mat",
+      "expected_prefix": "M_",
+      "message": "Filename does not start with M_"
     },
     {
-      "id": "VAL-0b049c7ceed6",
-      "assetPath": "Assets/Scenes/Baking/Lit.mat",
-      "assetType": "material",
-      "rule": "naming.materials",
-      "observed": "Lit.mat",
-      "expected": "filename stem begins with M_",
-      "verified": true
+      "path": "Assets/Scenes/Baking/Lit.mat",
+      "check": "naming",
+      "actual": "Lit.mat",
+      "expected_prefix": "M_",
+      "message": "Filename does not start with M_"
     },
     {
-      "id": "VAL-980f1d618f04",
-      "assetPath": "Assets/Scenes/Baking/Metal_Black.mat",
-      "assetType": "material",
-      "rule": "naming.materials",
-      "observed": "Metal_Black.mat",
-      "expected": "filename stem begins with M_",
-      "verified": true
+      "path": "Assets/Scenes/Baking/Metal_Black.mat",
+      "check": "naming",
+      "actual": "Metal_Black.mat",
+      "expected_prefix": "M_",
+      "message": "Filename does not start with M_"
     },
     {
-      "id": "VAL-4c7e2122eb66",
-      "assetPath": "Assets/Scenes/Baking/ReflectionProbe-0.exr",
-      "assetType": "texture",
-      "rule": "naming.textures",
-      "observed": "ReflectionProbe-0.exr",
-      "expected": "filename stem begins with T_",
-      "verified": true
+      "path": "Assets/Scenes/Baking/ReflectionProbe-0.exr",
+      "check": "naming",
+      "actual": "ReflectionProbe-0.exr",
+      "expected_prefix": "T_",
+      "message": "Filename does not start with T_"
     },
     {
-      "id": "VAL-b30ff821e558",
-      "assetPath": "Assets/Scenes/Baking/ReflectionProbe-0.exr",
-      "assetType": "texture",
-      "rule": "textures.allowed_formats",
-      "observed": ".exr",
-      "expected": [
+      "path": "Assets/Scenes/Baking/ReflectionProbe-0.exr",
+      "check": "format",
+      "actual": ".exr",
+      "allowed_formats": [
         ".png",
         ".tga"
       ],
-      "verified": true
+      "message": "File format is not allowed"
     },
     {
-      "id": "VAL-593d5d6cfb2c",
-      "assetPath": "Assets/Scenes/Baking/SamplesFixture.fbx",
-      "assetType": "model",
-      "rule": "naming.models",
-      "observed": "SamplesFixture.fbx",
-      "expected": "filename stem begins with SM_",
-      "verified": true
+      "path": "Assets/Scenes/Baking/SamplesFixture.fbx",
+      "check": "naming",
+      "actual": "SamplesFixture.fbx",
+      "expected_prefix": "SM_",
+      "message": "Filename does not start with SM_"
     },
     {
-      "id": "VAL-a36ccb91d25e",
-      "assetPath": "Assets/Scenes/Baking/SamplesFloorSpotlight.fbx",
-      "assetType": "model",
-      "rule": "naming.models",
-      "observed": "SamplesFloorSpotlight.fbx",
-      "expected": "filename stem begins with SM_",
-      "verified": true
+      "path": "Assets/Scenes/Baking/SamplesFloorSpotlight.fbx",
+      "check": "naming",
+      "actual": "SamplesFloorSpotlight.fbx",
+      "expected_prefix": "SM_",
+      "message": "Filename does not start with SM_"
     },
     {
-      "id": "VAL-79b97de70955",
-      "assetPath": "Assets/Scenes/Baking/SamplesSpotlightModel.fbx",
-      "assetType": "model",
-      "rule": "naming.models",
-      "observed": "SamplesSpotlightModel.fbx",
-      "expected": "filename stem begins with SM_",
-      "verified": true
+      "path": "Assets/Scenes/Baking/SamplesSpotlightModel.fbx",
+      "check": "naming",
+      "actual": "SamplesSpotlightModel.fbx",
+      "expected_prefix": "SM_",
+      "message": "Filename does not start with SM_"
     },
     {
-      "id": "VAL-753cc701e815",
-      "assetPath": "Assets/Scenes/Baking/UnityMaterialBall.fbx",
-      "assetType": "model",
-      "rule": "naming.models",
-      "observed": "UnityMaterialBall.fbx",
-      "expected": "filename stem begins with SM_",
-      "verified": true
+      "path": "Assets/Scenes/Baking/UnityMaterialBall.fbx",
+      "check": "naming",
+      "actual": "UnityMaterialBall.fbx",
+      "expected_prefix": "SM_",
+      "message": "Filename does not start with SM_"
     },
     {
-      "id": "VAL-5af49ee2888a",
-      "assetPath": "Assets/Scenes/Baking/UnityMaterialBall.fbx",
-      "assetType": "model",
-      "rule": "models.max_triangles",
-      "observed": 39270,
-      "expected": 10000,
-      "verified": true
+      "path": "Assets/Scenes/Baking/UnityMaterialBall.fbx",
+      "check": "model_triangles",
+      "actual": 39270,
+      "maximum": 10000,
+      "message": "Model triangle count exceeds maximum"
     },
     {
-      "id": "VAL-79af87d88fbd",
-      "assetPath": "Assets/Scenes/Baking/White.mat",
-      "assetType": "material",
-      "rule": "naming.materials",
-      "observed": "White.mat",
-      "expected": "filename stem begins with M_",
-      "verified": true
+      "path": "Assets/Scenes/Baking/White.mat",
+      "check": "naming",
+      "actual": "White.mat",
+      "expected_prefix": "M_",
+      "message": "Filename does not start with M_"
     },
     {
-      "id": "VAL-984dab5158d4",
-      "assetPath": "Assets/Sprites/Basketball.png",
-      "assetType": "texture",
-      "rule": "naming.textures",
-      "observed": "Basketball.png",
-      "expected": "filename stem begins with T_",
-      "verified": true
+      "path": "Assets/Sprites/Basketball.png",
+      "check": "naming",
+      "actual": "Basketball.png",
+      "expected_prefix": "T_",
+      "message": "Filename does not start with T_"
     },
     {
-      "id": "VAL-d16f9cc9feff",
-      "assetPath": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat",
-      "assetType": "material",
-      "rule": "naming.materials",
-      "observed": "LiberationSans SDF - Drop Shadow.mat",
-      "expected": "filename stem begins with M_",
-      "verified": true
+      "path": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat",
+      "check": "naming",
+      "actual": "LiberationSans SDF - Drop Shadow.mat",
+      "expected_prefix": "M_",
+      "message": "Filename does not start with M_"
     },
     {
-      "id": "VAL-469f11004807",
-      "assetPath": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat",
-      "assetType": "material",
-      "rule": "naming.materials",
-      "observed": "LiberationSans SDF - Outline.mat",
-      "expected": "filename stem begins with M_",
-      "verified": true
+      "path": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat",
+      "check": "naming",
+      "actual": "LiberationSans SDF - Outline.mat",
+      "expected_prefix": "M_",
+      "message": "Filename does not start with M_"
+    }
+  ],
+  "skipped_checks": [
+    {
+      "path": "Assets/Materials/Blue.mat",
+      "check": "format",
+      "reason": "No allowed_formats standard for materials"
+    },
+    {
+      "path": "Assets/Materials/Debug.mat",
+      "check": "format",
+      "reason": "No allowed_formats standard for materials"
+    },
+    {
+      "path": "Assets/Materials/Green.mat",
+      "check": "format",
+      "reason": "No allowed_formats standard for materials"
+    },
+    {
+      "path": "Assets/Materials/Purple.mat",
+      "check": "format",
+      "reason": "No allowed_formats standard for materials"
+    },
+    {
+      "path": "Assets/Materials/Red.mat",
+      "check": "format",
+      "reason": "No allowed_formats standard for materials"
+    },
+    {
+      "path": "Assets/Materials/Yellow.mat",
+      "check": "format",
+      "reason": "No allowed_formats standard for materials"
+    },
+    {
+      "path": "Assets/Prefabs/Entity/Projectile.prefab",
+      "check": "format",
+      "reason": "No allowed_formats standard for prefabs"
+    },
+    {
+      "path": "Assets/Prefabs/Menu/DebugConsole.prefab",
+      "check": "format",
+      "reason": "No allowed_formats standard for prefabs"
+    },
+    {
+      "path": "Assets/Prefabs/Menu/DebugMenu.prefab",
+      "check": "format",
+      "reason": "No allowed_formats standard for prefabs"
+    },
+    {
+      "path": "Assets/Scenes/Baking/Black.mat",
+      "check": "format",
+      "reason": "No allowed_formats standard for materials"
+    },
+    {
+      "path": "Assets/Scenes/Baking/Emissive.mat",
+      "check": "format",
+      "reason": "No allowed_formats standard for materials"
+    },
+    {
+      "path": "Assets/Scenes/Baking/Gold.mat",
+      "check": "format",
+      "reason": "No allowed_formats standard for materials"
+    },
+    {
+      "path": "Assets/Scenes/Baking/Ground.mat",
+      "check": "format",
+      "reason": "No allowed_formats standard for materials"
+    },
+    {
+      "path": "Assets/Scenes/Baking/Lit.mat",
+      "check": "format",
+      "reason": "No allowed_formats standard for materials"
+    },
+    {
+      "path": "Assets/Scenes/Baking/Metal_Black.mat",
+      "check": "format",
+      "reason": "No allowed_formats standard for materials"
+    },
+    {
+      "path": "Assets/Scenes/Baking/White.mat",
+      "check": "format",
+      "reason": "No allowed_formats standard for materials"
+    },
+    {
+      "path": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat",
+      "check": "format",
+      "reason": "No allowed_formats standard for materials"
+    },
+    {
+      "path": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat",
+      "check": "format",
+      "reason": "No allowed_formats standard for materials"
+    }
+  ],
+  "failed_checks": [],
+  "measurements": [
+    {
+      "path": "Assets/Scenes/Baking/BackgroundMesh.fbx",
+      "check": "model_triangles",
+      "triangles": 1792,
+      "mesh_count": 1,
+      "polygon_count": 896,
+      "method": "Sum of (polygon vertex count - 2) over unique FBX Mesh geometries"
+    },
+    {
+      "path": "Assets/Scenes/Baking/ReflectionProbe-0.exr",
+      "check": "texture_dimensions",
+      "width": 768,
+      "height": 128,
+      "source": "image header"
+    },
+    {
+      "path": "Assets/Scenes/Baking/SamplesFixture.fbx",
+      "check": "model_triangles",
+      "triangles": 140,
+      "mesh_count": 1,
+      "polygon_count": 82,
+      "method": "Sum of (polygon vertex count - 2) over unique FBX Mesh geometries"
+    },
+    {
+      "path": "Assets/Scenes/Baking/SamplesFloorSpotlight.fbx",
+      "check": "model_triangles",
+      "triangles": 724,
+      "mesh_count": 2,
+      "polygon_count": 390,
+      "method": "Sum of (polygon vertex count - 2) over unique FBX Mesh geometries"
+    },
+    {
+      "path": "Assets/Scenes/Baking/SamplesSpotlightModel.fbx",
+      "check": "model_triangles",
+      "triangles": 7002,
+      "mesh_count": 8,
+      "polygon_count": 3655,
+      "method": "Sum of (polygon vertex count - 2) over unique FBX Mesh geometries"
+    },
+    {
+      "path": "Assets/Scenes/Baking/UnityMaterialBall.fbx",
+      "check": "model_triangles",
+      "triangles": 39270,
+      "mesh_count": 11,
+      "polygon_count": 30010,
+      "method": "Sum of (polygon vertex count - 2) over unique FBX Mesh geometries"
+    },
+    {
+      "path": "Assets/Sprites/Basketball.png",
+      "check": "texture_dimensions",
+      "width": 1280,
+      "height": 1273,
+      "source": "image header"
     }
   ]
 }
