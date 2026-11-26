@@ -1,207 +1,180 @@
 {
-  "generatedAt": "2026-11-26T03:07:58.395108+00:00",
-  "root": "Assets",
-  "totalAssets": 25,
-  "assets": [
-    {
-      "name": "Blue",
-      "fileName": "Blue.mat",
-      "path": "Assets/Materials/Blue.mat",
-      "type": "material",
-      "extension": ".mat",
-      "sizeBytes": 3850
-    },
-    {
-      "name": "Debug",
-      "fileName": "Debug.mat",
-      "path": "Assets/Materials/Debug.mat",
-      "type": "material",
-      "extension": ".mat",
-      "sizeBytes": 3795
-    },
-    {
-      "name": "Green",
-      "fileName": "Green.mat",
-      "path": "Assets/Materials/Green.mat",
-      "type": "material",
-      "extension": ".mat",
-      "sizeBytes": 3852
-    },
-    {
-      "name": "Purple",
-      "fileName": "Purple.mat",
-      "path": "Assets/Materials/Purple.mat",
-      "type": "material",
-      "extension": ".mat",
-      "sizeBytes": 3832
-    },
-    {
-      "name": "Red",
-      "fileName": "Red.mat",
-      "path": "Assets/Materials/Red.mat",
-      "type": "material",
-      "extension": ".mat",
-      "sizeBytes": 3849
-    },
-    {
-      "name": "Yellow",
-      "fileName": "Yellow.mat",
-      "path": "Assets/Materials/Yellow.mat",
-      "type": "material",
-      "extension": ".mat",
-      "sizeBytes": 3832
-    },
-    {
-      "name": "Projectile",
-      "fileName": "Projectile.prefab",
-      "path": "Assets/Prefabs/Entity/Projectile.prefab",
-      "type": "prefab",
-      "extension": ".prefab",
-      "sizeBytes": 3666
-    },
-    {
-      "name": "DebugConsole",
-      "fileName": "DebugConsole.prefab",
-      "path": "Assets/Prefabs/Menu/DebugConsole.prefab",
-      "type": "prefab",
-      "extension": ".prefab",
-      "sizeBytes": 1373
-    },
-    {
-      "name": "DebugMenu",
-      "fileName": "DebugMenu.prefab",
-      "path": "Assets/Prefabs/Menu/DebugMenu.prefab",
-      "type": "prefab",
-      "extension": ".prefab",
-      "sizeBytes": 1959
-    },
-    {
-      "name": "BackgroundMesh",
-      "fileName": "BackgroundMesh.fbx",
-      "path": "Assets/Scenes/Baking/BackgroundMesh.fbx",
-      "type": "model",
-      "extension": ".fbx",
-      "sizeBytes": 55020
-    },
-    {
-      "name": "Black",
-      "fileName": "Black.mat",
-      "path": "Assets/Scenes/Baking/Black.mat",
-      "type": "material",
-      "extension": ".mat",
-      "sizeBytes": 3739
-    },
-    {
-      "name": "Emissive",
-      "fileName": "Emissive.mat",
-      "path": "Assets/Scenes/Baking/Emissive.mat",
-      "type": "material",
-      "extension": ".mat",
-      "sizeBytes": 3765
-    },
-    {
-      "name": "Gold",
-      "fileName": "Gold.mat",
-      "path": "Assets/Scenes/Baking/Gold.mat",
-      "type": "material",
-      "extension": ".mat",
-      "sizeBytes": 3747
-    },
-    {
-      "name": "Ground",
-      "fileName": "Ground.mat",
-      "path": "Assets/Scenes/Baking/Ground.mat",
-      "type": "material",
-      "extension": ".mat",
-      "sizeBytes": 3766
-    },
-    {
-      "name": "Lit",
-      "fileName": "Lit.mat",
-      "path": "Assets/Scenes/Baking/Lit.mat",
-      "type": "material",
-      "extension": ".mat",
-      "sizeBytes": 4123
-    },
-    {
-      "name": "Metal_Black",
-      "fileName": "Metal_Black.mat",
-      "path": "Assets/Scenes/Baking/Metal_Black.mat",
-      "type": "material",
-      "extension": ".mat",
-      "sizeBytes": 3860
-    },
-    {
-      "name": "ReflectionProbe-0",
-      "fileName": "ReflectionProbe-0.exr",
-      "path": "Assets/Scenes/Baking/ReflectionProbe-0.exr",
-      "type": "texture",
-      "extension": ".exr",
-      "sizeBytes": 164100
-    },
-    {
-      "name": "SamplesFixture",
-      "fileName": "SamplesFixture.fbx",
-      "path": "Assets/Scenes/Baking/SamplesFixture.fbx",
-      "type": "model",
-      "extension": ".fbx",
-      "sizeBytes": 19452
-    },
-    {
-      "name": "SamplesFloorSpotlight",
-      "fileName": "SamplesFloorSpotlight.fbx",
-      "path": "Assets/Scenes/Baking/SamplesFloorSpotlight.fbx",
-      "type": "model",
-      "extension": ".fbx",
-      "sizeBytes": 37484
-    },
-    {
-      "name": "SamplesSpotlightModel",
-      "fileName": "SamplesSpotlightModel.fbx",
-      "path": "Assets/Scenes/Baking/SamplesSpotlightModel.fbx",
-      "type": "model",
-      "extension": ".fbx",
-      "sizeBytes": 249644
-    },
-    {
-      "name": "UnityMaterialBall",
-      "fileName": "UnityMaterialBall.fbx",
-      "path": "Assets/Scenes/Baking/UnityMaterialBall.fbx",
-      "type": "model",
-      "extension": ".fbx",
-      "sizeBytes": 1525376
-    },
-    {
-      "name": "White",
-      "fileName": "White.mat",
-      "path": "Assets/Scenes/Baking/White.mat",
-      "type": "material",
-      "extension": ".mat",
-      "sizeBytes": 3684
-    },
-    {
-      "name": "Basketball",
-      "fileName": "Basketball.png",
-      "path": "Assets/Sprites/Basketball.png",
-      "type": "texture",
-      "extension": ".png",
-      "sizeBytes": 225226
-    },
-    {
-      "name": "LiberationSans SDF - Drop Shadow",
-      "fileName": "LiberationSans SDF - Drop Shadow.mat",
-      "path": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat",
-      "type": "material",
-      "extension": ".mat",
-      "sizeBytes": 2975
-    },
-    {
-      "name": "LiberationSans SDF - Outline",
-      "fileName": "LiberationSans SDF - Outline.mat",
-      "path": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat",
-      "type": "material",
-      "extension": ".mat",
-      "sizeBytes": 2889
-    }
-  ]
+    "assets":  [
+                   {
+                       "name":  "Blue.mat",
+                       "path":  "Assets/Materials/Blue.mat",
+                       "type":  "material",
+                       "extension":  ".mat",
+                       "size_bytes":  3850
+                   },
+                   {
+                       "name":  "Debug.mat",
+                       "path":  "Assets/Materials/Debug.mat",
+                       "type":  "material",
+                       "extension":  ".mat",
+                       "size_bytes":  3795
+                   },
+                   {
+                       "name":  "Green.mat",
+                       "path":  "Assets/Materials/Green.mat",
+                       "type":  "material",
+                       "extension":  ".mat",
+                       "size_bytes":  3852
+                   },
+                   {
+                       "name":  "Purple.mat",
+                       "path":  "Assets/Materials/Purple.mat",
+                       "type":  "material",
+                       "extension":  ".mat",
+                       "size_bytes":  3832
+                   },
+                   {
+                       "name":  "Red.mat",
+                       "path":  "Assets/Materials/Red.mat",
+                       "type":  "material",
+                       "extension":  ".mat",
+                       "size_bytes":  3849
+                   },
+                   {
+                       "name":  "Yellow.mat",
+                       "path":  "Assets/Materials/Yellow.mat",
+                       "type":  "material",
+                       "extension":  ".mat",
+                       "size_bytes":  3832
+                   },
+                   {
+                       "name":  "Projectile.prefab",
+                       "path":  "Assets/Prefabs/Entity/Projectile.prefab",
+                       "type":  "prefab",
+                       "extension":  ".prefab",
+                       "size_bytes":  3666
+                   },
+                   {
+                       "name":  "DebugConsole.prefab",
+                       "path":  "Assets/Prefabs/Menu/DebugConsole.prefab",
+                       "type":  "prefab",
+                       "extension":  ".prefab",
+                       "size_bytes":  1373
+                   },
+                   {
+                       "name":  "DebugMenu.prefab",
+                       "path":  "Assets/Prefabs/Menu/DebugMenu.prefab",
+                       "type":  "prefab",
+                       "extension":  ".prefab",
+                       "size_bytes":  1959
+                   },
+                   {
+                       "name":  "BackgroundMesh.fbx",
+                       "path":  "Assets/Scenes/Baking/BackgroundMesh.fbx",
+                       "type":  "model",
+                       "extension":  ".fbx",
+                       "size_bytes":  55020
+                   },
+                   {
+                       "name":  "Black.mat",
+                       "path":  "Assets/Scenes/Baking/Black.mat",
+                       "type":  "material",
+                       "extension":  ".mat",
+                       "size_bytes":  3739
+                   },
+                   {
+                       "name":  "Emissive.mat",
+                       "path":  "Assets/Scenes/Baking/Emissive.mat",
+                       "type":  "material",
+                       "extension":  ".mat",
+                       "size_bytes":  3765
+                   },
+                   {
+                       "name":  "Gold.mat",
+                       "path":  "Assets/Scenes/Baking/Gold.mat",
+                       "type":  "material",
+                       "extension":  ".mat",
+                       "size_bytes":  3747
+                   },
+                   {
+                       "name":  "Ground.mat",
+                       "path":  "Assets/Scenes/Baking/Ground.mat",
+                       "type":  "material",
+                       "extension":  ".mat",
+                       "size_bytes":  3766
+                   },
+                   {
+                       "name":  "Lit.mat",
+                       "path":  "Assets/Scenes/Baking/Lit.mat",
+                       "type":  "material",
+                       "extension":  ".mat",
+                       "size_bytes":  4123
+                   },
+                   {
+                       "name":  "Metal_Black.mat",
+                       "path":  "Assets/Scenes/Baking/Metal_Black.mat",
+                       "type":  "material",
+                       "extension":  ".mat",
+                       "size_bytes":  3860
+                   },
+                   {
+                       "name":  "ReflectionProbe-0.exr",
+                       "path":  "Assets/Scenes/Baking/ReflectionProbe-0.exr",
+                       "type":  "texture",
+                       "extension":  ".exr",
+                       "size_bytes":  164100
+                   },
+                   {
+                       "name":  "SamplesFixture.fbx",
+                       "path":  "Assets/Scenes/Baking/SamplesFixture.fbx",
+                       "type":  "model",
+                       "extension":  ".fbx",
+                       "size_bytes":  19452
+                   },
+                   {
+                       "name":  "SamplesFloorSpotlight.fbx",
+                       "path":  "Assets/Scenes/Baking/SamplesFloorSpotlight.fbx",
+                       "type":  "model",
+                       "extension":  ".fbx",
+                       "size_bytes":  37484
+                   },
+                   {
+                       "name":  "SamplesSpotlightModel.fbx",
+                       "path":  "Assets/Scenes/Baking/SamplesSpotlightModel.fbx",
+                       "type":  "model",
+                       "extension":  ".fbx",
+                       "size_bytes":  249644
+                   },
+                   {
+                       "name":  "UnityMaterialBall.fbx",
+                       "path":  "Assets/Scenes/Baking/UnityMaterialBall.fbx",
+                       "type":  "model",
+                       "extension":  ".fbx",
+                       "size_bytes":  1525376
+                   },
+                   {
+                       "name":  "White.mat",
+                       "path":  "Assets/Scenes/Baking/White.mat",
+                       "type":  "material",
+                       "extension":  ".mat",
+                       "size_bytes":  3684
+                   },
+                   {
+                       "name":  "Basketball.png",
+                       "path":  "Assets/Sprites/Basketball.png",
+                       "type":  "texture",
+                       "extension":  ".png",
+                       "size_bytes":  225226
+                   },
+                   {
+                       "name":  "LiberationSans SDF - Drop Shadow.mat",
+                       "path":  "Assets/TextMesh Pro/Resources/Fonts \u0026 Materials/LiberationSans SDF - Drop Shadow.mat",
+                       "type":  "material",
+                       "extension":  ".mat",
+                       "size_bytes":  2975
+                   },
+                   {
+                       "name":  "LiberationSans SDF - Outline.mat",
+                       "path":  "Assets/TextMesh Pro/Resources/Fonts \u0026 Materials/LiberationSans SDF - Outline.mat",
+                       "type":  "material",
+                       "extension":  ".mat",
+                       "size_bytes":  2889
+                   }
+               ],
+    "total":  25
 }

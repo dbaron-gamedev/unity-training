@@ -9,6 +9,21 @@ temperature: 0.1
 
 Generate an inventory of the assets in the Unity project.
 
+# Initialization
+
+Before discovering assets:
+
+1. Create Pipeline/output/ if it does not exist.
+2. Remove the following files if they exist:
+   - Pipeline/output/assets.json
+   - Pipeline/output/validation.json
+   - Pipeline/output/corrections.json
+   - Pipeline/output/report.md
+3. Verify that the four previous output files are absent.
+4. Abort if initialization fails.
+
+Never delete any other files or directories.
+
 # Instructions
 
 1. Recursively scan the Assets directory.

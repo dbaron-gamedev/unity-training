@@ -1,468 +1,362 @@
 {
-  "generatedAt": "2026-11-26T03:07:58.395108+00:00",
-  "inventorySource": "Pipeline/output/assets.json",
-  "standardsSource": "Pipeline/standards.json",
   "summary": {
-    "assetsDiscovered": 25,
+    "status": "violations_found",
+    "compliant": false,
     "assetsValidated": 25,
-    "assetsWithViolations": 25,
-    "totalViolations": 27,
-    "violationsByRule": {
-      "format.textures": 1,
-      "models.max_triangles": 1,
-      "naming.materials": 15,
-      "naming.models": 5,
-      "naming.prefabs": 3,
-      "naming.textures": 2
-    },
-    "violationsBySeverity": {
-      "major": 2,
-      "minor": 25
-    },
-    "violationsByAssetType": {
-      "material": 15,
-      "model": 6,
-      "prefab": 3,
-      "texture": 3
-    }
+    "violations": 27,
+    "measurements": 7,
+    "skippedChecks": 0,
+    "failedChecks": 0
   },
   "checksPerformed": [
     {
       "check": "naming",
-      "status": "completed",
-      "appliesTo": [
-        "model",
-        "texture",
-        "material",
-        "prefab"
-      ]
+      "assetCount": 25,
+      "standard": "naming prefixes by asset type (filename stem)"
     },
     {
-      "check": "fileFormat",
-      "status": "completed",
-      "appliesTo": [
-        "model",
-        "texture"
-      ]
+      "check": "supported_formats",
+      "assetCount": 7,
+      "standard": "textures.allowed_formats and models.allowed_formats"
     },
     {
-      "check": "textureDimensions",
-      "status": "completed",
-      "appliesTo": [
-        "texture"
-      ],
-      "method": "PNG header / System.Drawing; EXR dataWindow attribute"
+      "check": "texture_dimensions",
+      "assetCount": 2,
+      "standard": "textures.max_width and textures.max_height"
     },
     {
-      "check": "triangleCount",
-      "status": "completed",
-      "appliesTo": [
-        "model"
-      ],
-      "method": "Binary FBX (v7400) PolygonVertexIndex parsing"
+      "check": "model_triangles",
+      "assetCount": 5,
+      "standard": "models.max_triangles"
     }
   ],
   "skippedChecks": [],
   "failedChecks": [],
-  "measurements": {
-    "textureDimensions": {
-      "Assets/Sprites/Basketball.png": {
-        "width": 1280,
-        "height": 1273,
-        "method": "PNG IHDR / System.Drawing"
-      },
-      "Assets/Scenes/Baking/ReflectionProbe-0.exr": {
-        "width": 768,
-        "height": 128,
-        "method": "EXR dataWindow attribute"
-      }
+  "measurements": [
+    {
+      "assetPath": "Assets/Scenes/Baking/BackgroundMesh.fbx",
+      "assetType": "model",
+      "triangles": 1792,
+      "meshGeometryTriangleCounts": [
+        1792
+      ],
+      "method": "Binary FBX PolygonVertexIndex polygon triangulation (sum of polygons vertex_count - 2 across mesh geometries; not Unity import triangulation)"
     },
-    "triangleCounts": {
-      "Assets/Scenes/Baking/BackgroundMesh.fbx": 1792,
-      "Assets/Scenes/Baking/SamplesFixture.fbx": 140,
-      "Assets/Scenes/Baking/SamplesFloorSpotlight.fbx": 724,
-      "Assets/Scenes/Baking/SamplesSpotlightModel.fbx": 7002,
-      "Assets/Scenes/Baking/UnityMaterialBall.fbx": 39270
+    {
+      "assetPath": "Assets/Scenes/Baking/ReflectionProbe-0.exr",
+      "assetType": "texture",
+      "width": 768,
+      "height": 128,
+      "method": "OpenEXR dataWindow"
+    },
+    {
+      "assetPath": "Assets/Scenes/Baking/SamplesFixture.fbx",
+      "assetType": "model",
+      "triangles": 140,
+      "meshGeometryTriangleCounts": [
+        140
+      ],
+      "method": "Binary FBX PolygonVertexIndex polygon triangulation (sum of polygons vertex_count - 2 across mesh geometries; not Unity import triangulation)"
+    },
+    {
+      "assetPath": "Assets/Scenes/Baking/SamplesFloorSpotlight.fbx",
+      "assetType": "model",
+      "triangles": 724,
+      "meshGeometryTriangleCounts": [
+        420,
+        304
+      ],
+      "method": "Binary FBX PolygonVertexIndex polygon triangulation (sum of polygons vertex_count - 2 across mesh geometries; not Unity import triangulation)"
+    },
+    {
+      "assetPath": "Assets/Scenes/Baking/SamplesSpotlightModel.fbx",
+      "assetType": "model",
+      "triangles": 7002,
+      "meshGeometryTriangleCounts": [
+        244,
+        3462,
+        284,
+        284,
+        284,
+        168,
+        2268,
+        8
+      ],
+      "method": "Binary FBX PolygonVertexIndex polygon triangulation (sum of polygons vertex_count - 2 across mesh geometries; not Unity import triangulation)"
+    },
+    {
+      "assetPath": "Assets/Scenes/Baking/UnityMaterialBall.fbx",
+      "assetType": "model",
+      "triangles": 39270,
+      "meshGeometryTriangleCounts": [
+        1712,
+        6884,
+        1392,
+        5710,
+        5044,
+        2240,
+        3150,
+        1528,
+        1948,
+        7950,
+        1712
+      ],
+      "method": "Binary FBX PolygonVertexIndex polygon triangulation (sum of polygons vertex_count - 2 across mesh geometries; not Unity import triangulation)"
+    },
+    {
+      "assetPath": "Assets/Sprites/Basketball.png",
+      "assetType": "texture",
+      "width": 1280,
+      "height": 1273,
+      "method": "PNG IHDR"
     }
-  },
+  ],
   "violations": [
     {
-      "id": "V001",
+      "id": "VAL-53d3b2004a24",
       "assetPath": "Assets/Materials/Blue.mat",
       "assetType": "material",
       "rule": "naming.materials",
-      "severity": "minor",
-      "observed": "Blue",
-      "expected": "name starting with 'M_'",
-      "message": "Asset name does not follow the required 'M_' prefix.",
-      "evidence": "File base name 'Blue' compared to prefix 'M_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "Blue.mat",
+      "expected": "filename stem begins with M_",
+      "verified": true
     },
     {
-      "id": "V002",
+      "id": "VAL-d150e592a6d1",
       "assetPath": "Assets/Materials/Debug.mat",
       "assetType": "material",
       "rule": "naming.materials",
-      "severity": "minor",
-      "observed": "Debug",
-      "expected": "name starting with 'M_'",
-      "message": "Asset name does not follow the required 'M_' prefix.",
-      "evidence": "File base name 'Debug' compared to prefix 'M_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "Debug.mat",
+      "expected": "filename stem begins with M_",
+      "verified": true
     },
     {
-      "id": "V003",
+      "id": "VAL-9fbf0887dc3f",
       "assetPath": "Assets/Materials/Green.mat",
       "assetType": "material",
       "rule": "naming.materials",
-      "severity": "minor",
-      "observed": "Green",
-      "expected": "name starting with 'M_'",
-      "message": "Asset name does not follow the required 'M_' prefix.",
-      "evidence": "File base name 'Green' compared to prefix 'M_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "Green.mat",
+      "expected": "filename stem begins with M_",
+      "verified": true
     },
     {
-      "id": "V004",
+      "id": "VAL-5bfcb0a19aaa",
       "assetPath": "Assets/Materials/Purple.mat",
       "assetType": "material",
       "rule": "naming.materials",
-      "severity": "minor",
-      "observed": "Purple",
-      "expected": "name starting with 'M_'",
-      "message": "Asset name does not follow the required 'M_' prefix.",
-      "evidence": "File base name 'Purple' compared to prefix 'M_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "Purple.mat",
+      "expected": "filename stem begins with M_",
+      "verified": true
     },
     {
-      "id": "V005",
+      "id": "VAL-38db61f5b43e",
       "assetPath": "Assets/Materials/Red.mat",
       "assetType": "material",
       "rule": "naming.materials",
-      "severity": "minor",
-      "observed": "Red",
-      "expected": "name starting with 'M_'",
-      "message": "Asset name does not follow the required 'M_' prefix.",
-      "evidence": "File base name 'Red' compared to prefix 'M_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "Red.mat",
+      "expected": "filename stem begins with M_",
+      "verified": true
     },
     {
-      "id": "V006",
+      "id": "VAL-c5a4fee7540f",
       "assetPath": "Assets/Materials/Yellow.mat",
       "assetType": "material",
       "rule": "naming.materials",
-      "severity": "minor",
-      "observed": "Yellow",
-      "expected": "name starting with 'M_'",
-      "message": "Asset name does not follow the required 'M_' prefix.",
-      "evidence": "File base name 'Yellow' compared to prefix 'M_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "Yellow.mat",
+      "expected": "filename stem begins with M_",
+      "verified": true
     },
     {
-      "id": "V007",
+      "id": "VAL-6d9f03d0e586",
       "assetPath": "Assets/Prefabs/Entity/Projectile.prefab",
       "assetType": "prefab",
       "rule": "naming.prefabs",
-      "severity": "minor",
-      "observed": "Projectile",
-      "expected": "name starting with 'PF_'",
-      "message": "Asset name does not follow the required 'PF_' prefix.",
-      "evidence": "File base name 'Projectile' compared to prefix 'PF_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "Projectile.prefab",
+      "expected": "filename stem begins with PF_",
+      "verified": true
     },
     {
-      "id": "V008",
+      "id": "VAL-a1c38bf01d74",
       "assetPath": "Assets/Prefabs/Menu/DebugConsole.prefab",
       "assetType": "prefab",
       "rule": "naming.prefabs",
-      "severity": "minor",
-      "observed": "DebugConsole",
-      "expected": "name starting with 'PF_'",
-      "message": "Asset name does not follow the required 'PF_' prefix.",
-      "evidence": "File base name 'DebugConsole' compared to prefix 'PF_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "DebugConsole.prefab",
+      "expected": "filename stem begins with PF_",
+      "verified": true
     },
     {
-      "id": "V009",
+      "id": "VAL-b94cca008d70",
       "assetPath": "Assets/Prefabs/Menu/DebugMenu.prefab",
       "assetType": "prefab",
       "rule": "naming.prefabs",
-      "severity": "minor",
-      "observed": "DebugMenu",
-      "expected": "name starting with 'PF_'",
-      "message": "Asset name does not follow the required 'PF_' prefix.",
-      "evidence": "File base name 'DebugMenu' compared to prefix 'PF_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "DebugMenu.prefab",
+      "expected": "filename stem begins with PF_",
+      "verified": true
     },
     {
-      "id": "V010",
+      "id": "VAL-99dee97e2058",
       "assetPath": "Assets/Scenes/Baking/BackgroundMesh.fbx",
       "assetType": "model",
       "rule": "naming.models",
-      "severity": "minor",
-      "observed": "BackgroundMesh",
-      "expected": "name starting with 'SM_'",
-      "message": "Asset name does not follow the required 'SM_' prefix.",
-      "evidence": "File base name 'BackgroundMesh' compared to prefix 'SM_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "BackgroundMesh.fbx",
+      "expected": "filename stem begins with SM_",
+      "verified": true
     },
     {
-      "id": "V011",
+      "id": "VAL-656e98358461",
       "assetPath": "Assets/Scenes/Baking/Black.mat",
       "assetType": "material",
       "rule": "naming.materials",
-      "severity": "minor",
-      "observed": "Black",
-      "expected": "name starting with 'M_'",
-      "message": "Asset name does not follow the required 'M_' prefix.",
-      "evidence": "File base name 'Black' compared to prefix 'M_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "Black.mat",
+      "expected": "filename stem begins with M_",
+      "verified": true
     },
     {
-      "id": "V012",
+      "id": "VAL-8ccae9570b73",
       "assetPath": "Assets/Scenes/Baking/Emissive.mat",
       "assetType": "material",
       "rule": "naming.materials",
-      "severity": "minor",
-      "observed": "Emissive",
-      "expected": "name starting with 'M_'",
-      "message": "Asset name does not follow the required 'M_' prefix.",
-      "evidence": "File base name 'Emissive' compared to prefix 'M_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "Emissive.mat",
+      "expected": "filename stem begins with M_",
+      "verified": true
     },
     {
-      "id": "V013",
+      "id": "VAL-b38231c865ce",
       "assetPath": "Assets/Scenes/Baking/Gold.mat",
       "assetType": "material",
       "rule": "naming.materials",
-      "severity": "minor",
-      "observed": "Gold",
-      "expected": "name starting with 'M_'",
-      "message": "Asset name does not follow the required 'M_' prefix.",
-      "evidence": "File base name 'Gold' compared to prefix 'M_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "Gold.mat",
+      "expected": "filename stem begins with M_",
+      "verified": true
     },
     {
-      "id": "V014",
+      "id": "VAL-357a68926b89",
       "assetPath": "Assets/Scenes/Baking/Ground.mat",
       "assetType": "material",
       "rule": "naming.materials",
-      "severity": "minor",
-      "observed": "Ground",
-      "expected": "name starting with 'M_'",
-      "message": "Asset name does not follow the required 'M_' prefix.",
-      "evidence": "File base name 'Ground' compared to prefix 'M_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "Ground.mat",
+      "expected": "filename stem begins with M_",
+      "verified": true
     },
     {
-      "id": "V015",
+      "id": "VAL-0b049c7ceed6",
       "assetPath": "Assets/Scenes/Baking/Lit.mat",
       "assetType": "material",
       "rule": "naming.materials",
-      "severity": "minor",
-      "observed": "Lit",
-      "expected": "name starting with 'M_'",
-      "message": "Asset name does not follow the required 'M_' prefix.",
-      "evidence": "File base name 'Lit' compared to prefix 'M_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "Lit.mat",
+      "expected": "filename stem begins with M_",
+      "verified": true
     },
     {
-      "id": "V016",
+      "id": "VAL-980f1d618f04",
       "assetPath": "Assets/Scenes/Baking/Metal_Black.mat",
       "assetType": "material",
       "rule": "naming.materials",
-      "severity": "minor",
-      "observed": "Metal_Black",
-      "expected": "name starting with 'M_'",
-      "message": "Asset name does not follow the required 'M_' prefix.",
-      "evidence": "File base name 'Metal_Black' compared to prefix 'M_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "Metal_Black.mat",
+      "expected": "filename stem begins with M_",
+      "verified": true
     },
     {
-      "id": "V017",
-      "assetPath": "Assets/Scenes/Baking/ReflectionProbe-0.exr",
-      "assetType": "texture",
-      "rule": "format.textures",
-      "severity": "major",
-      "observed": ".exr",
-      "expected": ".png, .tga",
-      "message": "File format is not permitted for this asset type.",
-      "evidence": "Extension '.exr' is not in allowed list.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": true
-    },
-    {
-      "id": "V018",
+      "id": "VAL-4c7e2122eb66",
       "assetPath": "Assets/Scenes/Baking/ReflectionProbe-0.exr",
       "assetType": "texture",
       "rule": "naming.textures",
-      "severity": "minor",
-      "observed": "ReflectionProbe-0",
-      "expected": "name starting with 'T_'",
-      "message": "Asset name does not follow the required 'T_' prefix.",
-      "evidence": "File base name 'ReflectionProbe-0' compared to prefix 'T_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": true
+      "observed": "ReflectionProbe-0.exr",
+      "expected": "filename stem begins with T_",
+      "verified": true
     },
     {
-      "id": "V019",
+      "id": "VAL-b30ff821e558",
+      "assetPath": "Assets/Scenes/Baking/ReflectionProbe-0.exr",
+      "assetType": "texture",
+      "rule": "textures.allowed_formats",
+      "observed": ".exr",
+      "expected": [
+        ".png",
+        ".tga"
+      ],
+      "verified": true
+    },
+    {
+      "id": "VAL-593d5d6cfb2c",
       "assetPath": "Assets/Scenes/Baking/SamplesFixture.fbx",
       "assetType": "model",
       "rule": "naming.models",
-      "severity": "minor",
-      "observed": "SamplesFixture",
-      "expected": "name starting with 'SM_'",
-      "message": "Asset name does not follow the required 'SM_' prefix.",
-      "evidence": "File base name 'SamplesFixture' compared to prefix 'SM_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "SamplesFixture.fbx",
+      "expected": "filename stem begins with SM_",
+      "verified": true
     },
     {
-      "id": "V020",
+      "id": "VAL-a36ccb91d25e",
       "assetPath": "Assets/Scenes/Baking/SamplesFloorSpotlight.fbx",
       "assetType": "model",
       "rule": "naming.models",
-      "severity": "minor",
-      "observed": "SamplesFloorSpotlight",
-      "expected": "name starting with 'SM_'",
-      "message": "Asset name does not follow the required 'SM_' prefix.",
-      "evidence": "File base name 'SamplesFloorSpotlight' compared to prefix 'SM_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "SamplesFloorSpotlight.fbx",
+      "expected": "filename stem begins with SM_",
+      "verified": true
     },
     {
-      "id": "V021",
+      "id": "VAL-79b97de70955",
       "assetPath": "Assets/Scenes/Baking/SamplesSpotlightModel.fbx",
       "assetType": "model",
       "rule": "naming.models",
-      "severity": "minor",
-      "observed": "SamplesSpotlightModel",
-      "expected": "name starting with 'SM_'",
-      "message": "Asset name does not follow the required 'SM_' prefix.",
-      "evidence": "File base name 'SamplesSpotlightModel' compared to prefix 'SM_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "SamplesSpotlightModel.fbx",
+      "expected": "filename stem begins with SM_",
+      "verified": true
     },
     {
-      "id": "V022",
-      "assetPath": "Assets/Scenes/Baking/UnityMaterialBall.fbx",
-      "assetType": "model",
-      "rule": "models.max_triangles",
-      "severity": "major",
-      "observed": "39270",
-      "expected": "<= 10000",
-      "message": "Model exceeds the triangle budget.",
-      "evidence": "Triangle count derived from FBX PolygonVertexIndex data.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
-    },
-    {
-      "id": "V023",
+      "id": "VAL-753cc701e815",
       "assetPath": "Assets/Scenes/Baking/UnityMaterialBall.fbx",
       "assetType": "model",
       "rule": "naming.models",
-      "severity": "minor",
-      "observed": "UnityMaterialBall",
-      "expected": "name starting with 'SM_'",
-      "message": "Asset name does not follow the required 'SM_' prefix.",
-      "evidence": "File base name 'UnityMaterialBall' compared to prefix 'SM_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "UnityMaterialBall.fbx",
+      "expected": "filename stem begins with SM_",
+      "verified": true
     },
     {
-      "id": "V024",
+      "id": "VAL-5af49ee2888a",
+      "assetPath": "Assets/Scenes/Baking/UnityMaterialBall.fbx",
+      "assetType": "model",
+      "rule": "models.max_triangles",
+      "observed": 39270,
+      "expected": 10000,
+      "verified": true
+    },
+    {
+      "id": "VAL-79af87d88fbd",
       "assetPath": "Assets/Scenes/Baking/White.mat",
       "assetType": "material",
       "rule": "naming.materials",
-      "severity": "minor",
-      "observed": "White",
-      "expected": "name starting with 'M_'",
-      "message": "Asset name does not follow the required 'M_' prefix.",
-      "evidence": "File base name 'White' compared to prefix 'M_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "White.mat",
+      "expected": "filename stem begins with M_",
+      "verified": true
     },
     {
-      "id": "V025",
+      "id": "VAL-984dab5158d4",
       "assetPath": "Assets/Sprites/Basketball.png",
       "assetType": "texture",
       "rule": "naming.textures",
-      "severity": "minor",
-      "observed": "Basketball",
-      "expected": "name starting with 'T_'",
-      "message": "Asset name does not follow the required 'T_' prefix.",
-      "evidence": "File base name 'Basketball' compared to prefix 'T_'.",
-      "verified": true,
-      "vendorPackage": false,
-      "generated": false
+      "observed": "Basketball.png",
+      "expected": "filename stem begins with T_",
+      "verified": true
     },
     {
-      "id": "V026",
+      "id": "VAL-d16f9cc9feff",
       "assetPath": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat",
       "assetType": "material",
       "rule": "naming.materials",
-      "severity": "minor",
-      "observed": "LiberationSans SDF - Drop Shadow",
-      "expected": "name starting with 'M_'",
-      "message": "Asset name does not follow the required 'M_' prefix.",
-      "evidence": "File base name 'LiberationSans SDF - Drop Shadow' compared to prefix 'M_'.",
-      "verified": true,
-      "vendorPackage": true,
-      "generated": false
+      "observed": "LiberationSans SDF - Drop Shadow.mat",
+      "expected": "filename stem begins with M_",
+      "verified": true
     },
     {
-      "id": "V027",
+      "id": "VAL-469f11004807",
       "assetPath": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat",
       "assetType": "material",
       "rule": "naming.materials",
-      "severity": "minor",
-      "observed": "LiberationSans SDF - Outline",
-      "expected": "name starting with 'M_'",
-      "message": "Asset name does not follow the required 'M_' prefix.",
-      "evidence": "File base name 'LiberationSans SDF - Outline' compared to prefix 'M_'.",
-      "verified": true,
-      "vendorPackage": true,
-      "generated": false
+      "observed": "LiberationSans SDF - Outline.mat",
+      "expected": "filename stem begins with M_",
+      "verified": true
     }
   ]
 }

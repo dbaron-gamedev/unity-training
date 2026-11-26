@@ -1,150 +1,44 @@
-# Asset Quality Control Report
+# Asset quality control report
 
-**Generated:** 2026-11-26T03:07:58.395108+00:00
+## Outcome
 
-**Status:** Completed — discovery, validation, correction planning and reporting all executed.
+- **Validation status:** `violations_found`; `compliant: false`.
+- **Discovered / validated assets:** 25 / 25.
+- **Assets with violations:** 25 distinct asset paths; **violations:** 27. Two assets each have two violations.
+- All 27 recorded violations are marked `verified: true` in validation. **Violation severity: unknown** — validation does not provide severity. Correction *impact* is a separate classification, not violation severity.
+- **Corrections are proposed only:** `executed: false`, `assetsModified: false`. No correction or exception has been applied by this report.
 
-**Assets modified:** None. This pipeline is read-only with respect to `Assets/`.
+## Violations by asset type and severity
 
-## Scope
+| Asset type | Assets with violations | Violations | Severity | Recorded rules |
+| --- | ---: | ---: | --- | --- |
+| Material | 15 | 15 | Unknown (15) | `naming.materials` (15) |
+| Prefab | 3 | 3 | Unknown (3) | `naming.prefabs` (3) |
+| Model | 5 | 6 | Unknown (6) | `naming.models` (5); `models.max_triangles` (1) |
+| Texture | 2 | 3 | Unknown (3) | `naming.textures` (2); `textures.allowed_formats` (1) |
+| **Total** | **25** | **27** | **Unknown (27)** | |
 
-- Standards: `Pipeline/standards.json`
-- Inventory: `Pipeline/output/assets.json`
-- Validation: `Pipeline/output/validation.json`
-- Correction plan: `Pipeline/output/corrections.json`
+The naming violations concern 25 assets: 15 materials (six in `Assets/Materials/`, seven in `Assets/Scenes/Baking/`, and two in `Assets/TextMesh Pro/Resources/Fonts & Materials/`), three prefabs in `Assets/Prefabs/`, five FBX models in `Assets/Scenes/Baking/`, and two textures (`Assets/Scenes/Baking/ReflectionProbe-0.exr` and `Assets/Sprites/Basketball.png`). The expected filename-stem prefixes are `M_`, `PF_`, `SM_`, and `T_`, respectively.
 
-## Inventory
+Additional verified violations:
 
-| Asset type | Count |
-| --- | ---: |
-| Model | 5 |
-| Texture | 2 |
-| Material | 15 |
-| Prefab | 3 |
-| **Total** | **25** |
+- `Assets/Scenes/Baking/ReflectionProbe-0.exr`: `.exr` is outside the recorded allowed texture formats `.png` and `.tga`. Whether it is generated HDR probe data warranting a scoped exception is **unverified**.
+- `Assets/Scenes/Baking/UnityMaterialBall.fbx`: measured 39,270 triangles against a recorded maximum of 10,000. The measurement uses FBX polygon triangulation, **not Unity import triangulation**.
 
-## Validation results
+## Check coverage
 
-| Metric | Value |
-| --- | ---: |
-| Assets discovered | 25 |
-| Assets validated | 25 |
-| Assets with violations | 25 |
-| Total violations | 27 |
-| Verified violations | 27 |
-| Unverified violations | 0 |
+Validation records naming checks on 25 assets, supported-format checks on 7, texture-dimension checks on 2, and model-triangle checks on 5. It records 7 measurements. **Skipped checks: 0; failed checks: 0** (both lists are empty). No broader coverage or Unity-import results are established by these artifacts.
 
-### Violations by rule
+## Proposed corrections and approval
 
-| Rule | Count |
-| --- | ---: |
-| `format.textures` | 1 |
-| `models.max_triangles` | 1 |
-| `naming.materials` | 15 |
-| `naming.models` | 5 |
-| `naming.prefabs` | 3 |
-| `naming.textures` | 2 |
+The correction plan contains **27 proposals**, none executed:
 
-### Violations by severity
+| Proposed action | Count | Summary |
+| --- | ---: | --- |
+| Rename | 22 | Rename 13 materials, 3 prefabs, 5 models, and 1 texture to their recorded naming prefixes using Unity Editor asset moves; check destinations and references before any future action. |
+| Review generated-data naming exception | 1 | `C017`: verify provenance of `Assets/Scenes/Baking/ReflectionProbe-0.exr` before requesting an exception. |
+| Review texture-format exception | 1 | `C018`: establish whether the same EXR contains HDR reflection data before requesting an exception; do not assume conversion is appropriate. |
+| Review vendor naming exception | 2 | `C026`, `C027`: verify ownership of the two TextMesh Pro materials before requesting scoped exceptions. |
+| Optimize mesh | 1 | `C023`: proposed retopology/decimation of `Assets/Scenes/Baking/UnityMaterialBall.fbx` to at most 10,000 triangles, then remeasure and inspect; alternatively seek an approved scoped policy exception. |
 
-| Severity | Count |
-| --- | ---: |
-| Major | 2 |
-| Minor | 25 |
-
-## Validation coverage
-
-| Check | Status | Notes |
-| --- | --- | --- |
-| Naming conventions | Completed | Models, textures, materials, prefabs |
-| File formats | Completed | Models and textures |
-| Texture dimensions | Completed | Direct header inspection |
-| Triangle counts | Completed | Binary FBX polygon data |
-
-**Skipped checks:** None.
-
-**Failed checks:** None.
-
-### Measurements
-
-| Asset | Measurement | Method |
-| --- | --- | --- |
-| `Assets/Sprites/Basketball.png` | 1280 x 1273 px | PNG IHDR / System.Drawing |
-| `Assets/Scenes/Baking/ReflectionProbe-0.exr` | 768 x 128 px | EXR dataWindow attribute |
-| `Assets/Scenes/Baking/BackgroundMesh.fbx` | 1792 triangles | FBX PolygonVertexIndex parsing |
-| `Assets/Scenes/Baking/SamplesFixture.fbx` | 140 triangles | FBX PolygonVertexIndex parsing |
-| `Assets/Scenes/Baking/SamplesFloorSpotlight.fbx` | 724 triangles | FBX PolygonVertexIndex parsing |
-| `Assets/Scenes/Baking/SamplesSpotlightModel.fbx` | 7002 triangles | FBX PolygonVertexIndex parsing |
-| `Assets/Scenes/Baking/UnityMaterialBall.fbx` | 39270 triangles | FBX PolygonVertexIndex parsing |
-
-## Recommended corrections
-
-| Action | Count |
-| --- | ---: |
-| `exempt_generated` | 2 |
-| `exempt_vendor` | 2 |
-| `optimize_mesh` | 1 |
-| `rename` | 22 |
-
-### Renames (reference-preserving)
-
-All renames below are planned through `AssetDatabase.MoveAsset` (or a filesystem rename that moves the `.meta` file) so the asset GUID and all scene/prefab references are preserved. No script in the project loads these assets by name.
-
-| Current path | Target file name |
-| --- | --- |
-| `Assets/Materials/Blue.mat` | `M_Blue.mat` |
-| `Assets/Materials/Debug.mat` | `M_Debug.mat` |
-| `Assets/Materials/Green.mat` | `M_Green.mat` |
-| `Assets/Materials/Purple.mat` | `M_Purple.mat` |
-| `Assets/Materials/Red.mat` | `M_Red.mat` |
-| `Assets/Materials/Yellow.mat` | `M_Yellow.mat` |
-| `Assets/Prefabs/Entity/Projectile.prefab` | `PF_Projectile.prefab` |
-| `Assets/Prefabs/Menu/DebugConsole.prefab` | `PF_DebugConsole.prefab` |
-| `Assets/Prefabs/Menu/DebugMenu.prefab` | `PF_DebugMenu.prefab` |
-| `Assets/Scenes/Baking/BackgroundMesh.fbx` | `SM_BackgroundMesh.fbx` |
-| `Assets/Scenes/Baking/Black.mat` | `M_Black.mat` |
-| `Assets/Scenes/Baking/Emissive.mat` | `M_Emissive.mat` |
-| `Assets/Scenes/Baking/Gold.mat` | `M_Gold.mat` |
-| `Assets/Scenes/Baking/Ground.mat` | `M_Ground.mat` |
-| `Assets/Scenes/Baking/Lit.mat` | `M_Lit.mat` |
-| `Assets/Scenes/Baking/Metal_Black.mat` | `M_Metal_Black.mat` |
-| `Assets/Scenes/Baking/SamplesFixture.fbx` | `SM_SamplesFixture.fbx` |
-| `Assets/Scenes/Baking/SamplesFloorSpotlight.fbx` | `SM_SamplesFloorSpotlight.fbx` |
-| `Assets/Scenes/Baking/SamplesSpotlightModel.fbx` | `SM_SamplesSpotlightModel.fbx` |
-| `Assets/Scenes/Baking/UnityMaterialBall.fbx` | `SM_UnityMaterialBall.fbx` |
-| `Assets/Scenes/Baking/White.mat` | `M_White.mat` |
-| `Assets/Sprites/Basketball.png` | `T_Basketball.png` |
-
-### Exemptions (require approval)
-
-- **C017** — `Assets/Scenes/Baking/ReflectionProbe-0.exr` (format.textures): Keep the baked reflection probe in .exr and exempt generated HDR lighting data from the texture format allow-list.
-- **C018** — `Assets/Scenes/Baking/ReflectionProbe-0.exr` (naming.textures): Exempt the auto-generated baked reflection probe cubemap from the texture naming convention.
-- **C026** — `Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat` (naming.materials): Do not rename TextMesh Pro package material; exempt vendor/package content from the project naming convention.
-- **C027** — `Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat` (naming.materials): Do not rename TextMesh Pro package material; exempt vendor/package content from the project naming convention.
-
-### Mesh optimization (destructive)
-
-- **C022** — `Assets/Scenes/Baking/UnityMaterialBall.fbx` (models.max_triangles): Reduce the mesh from 39270 to <= 10000 triangles (decimation or retopology) and re-export the FBX.
-  - Tool: DCC tool (Blender decimation/retopology) followed by FBX re-export; alternatively Unity Mesh Simplifier.
-  - Impact: **high**; destructive: **yes**
-  - Note: This modifies the source model and may alter UVs, normals and silhouette. The asset is a Unity sample/demo model; exempting it or raising its budget may be preferable to decimation.
-
-## Human approval required
-
-| Correction | Asset | Action | Reason |
-| --- | --- | --- | --- |
-| C017 | `Assets/Scenes/Baking/ReflectionProbe-0.exr` | `exempt_generated` | Standards-scope change affecting generated/vendor content |
-| C018 | `Assets/Scenes/Baking/ReflectionProbe-0.exr` | `exempt_generated` | Standards-scope change affecting generated/vendor content |
-| C022 | `Assets/Scenes/Baking/UnityMaterialBall.fbx` | `optimize_mesh` | Destructive source-asset change |
-| C026 | `Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat` | `exempt_vendor` | Standards-scope change affecting generated/vendor content |
-| C027 | `Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat` | `exempt_vendor` | Standards-scope change affecting generated/vendor content |
-
-**Destructive operations:** C022.
-
-## Notes and limitations
-
-- Triangle counts were derived from the binary FBX polygon data, not from Unity's importer or an in-editor mesh query.
-- Texture dimensions were read directly from the PNG header and the EXR `dataWindow` attribute.
-- Naming and format findings apply the standards literally to every asset under `Assets/`, including Unity sample and TextMesh Pro package content. Exemptions are proposed where renaming or converting would be harmful.
-- No Unity assets or `.meta` files were created, modified, renamed or deleted.
-- No correction has been executed; the plan is advisory only.
+**Human approval required for 5 proposals:** `C017`, `C018`, `C023`, `C026`, `C027`. **One proposed destructive operation:** `C023` (mesh geometry alteration; high correction impact and potential UV, normal, silhouette, and sub-asset ID changes). The other 22 proposals have low correction impact and the four exception reviews have none, as classified by the correction plan. These impact labels do **not** supply violation severity. No approval is recorded in the artifacts; review outcomes, exceptions, and post-correction compliance remain **unverified**.
