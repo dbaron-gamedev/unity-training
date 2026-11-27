@@ -1,17 +1,18 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Renderer))]
 public class Torque : MonoBehaviour
 {
     [Header("Physics")]
-    [Tooltip("Applied torque (N·m)")]
+    [Tooltip("Applied torque (Nï¿½m)")]
     public float torque = 100f;
 
-    [Tooltip("Moment of inertia (kg·m²)")]
+    [Tooltip("Moment of inertia (kgï¿½mï¿½)")]
     public float inertia = 10f;
 
     [Header("State")]
-    [Tooltip("Angular acceleration (rad/s²)")]
+    [Tooltip("Angular acceleration (rad/sï¿½)")]
     public float angularAcceleration = 0f;
 
     [Tooltip("Angular velocity (rad/s)")]
@@ -19,8 +20,8 @@ public class Torque : MonoBehaviour
 
     [Tooltip("Angular displacement (rad)")]
     public float angle = 0f;
-
-    private Material _material;
+    
+    public Material _material;
 
     private void Start()
     {
@@ -47,6 +48,7 @@ public class Torque : MonoBehaviour
 
         // Send the angle to Shader Graph
         _material.SetFloat("_Angle", angle);
+        _material.SetFloat("_AngularVelocity", angularVelocity);
     }
 
     private void OnDestroy()
