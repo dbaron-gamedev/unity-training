@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 [RequireComponent(typeof(Renderer))]
 public class Torque : MonoBehaviour
@@ -21,11 +22,13 @@ public class Torque : MonoBehaviour
     public float angle = 0f;
 
     private Material _material;
+    private VisualEffect _vfx;
 
     private void Start()
     {
         // Get the object's material instance
         _material = GetComponent<Renderer>().material;
+        _vfx = GetComponent<VisualEffect>();
     }
 
     private void Update()
@@ -47,6 +50,11 @@ public class Torque : MonoBehaviour
 
         // Send the angle to Shader Graph
         _material.SetFloat("_Angle", angle);
+        _material.SetFloat("_AngularVelocity", angularVelocity);
+
+
+        // Send the angular velocity to Visual Effect Graph
+        _vfx.SetFloat("angularSpeed", angularVelocity);
     }
 
     private void OnDestroy()
