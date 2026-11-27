@@ -1,34 +1,58 @@
-/**
- * Torque:
- * Imagine torque as a person pushing.
-    - Torque = how hard they push
-    - Inertia = how stubborn the object is
-**/
-
 using UnityEngine;
 
+[RequireComponent(typeof(Renderer))]
 public class Torque : MonoBehaviour
 {
-    [Header("Physics"), Tooltip("Newton-meters (N·m)")]
+    [Header("Physics")]
+    [Tooltip("Applied torque (N·m)")]
     public float torque = 100f;
 
-    // Inertia is an object's resistance to changes in motion.
-    [Tooltip("Wow the mass is distributed relative to the axis of rotation (kg·m²)")]
+    [Tooltip("Moment of inertia (kg·m²)")]
     public float inertia = 10f;
 
     [Header("State")]
-    public float angularVelocity = 25f;
+    [Tooltip("Angular acceleration (rad/s²)")]
+    public float angularAcceleration = 0f;
+
+    [Tooltip("Angular velocity (rad/s)")]
+    public float angularVelocity = 0f;
+
+    [Tooltip("Angular displacement (rad)")]
+    public float angle = 0f;
+
+    private Material _material;
+
+    private void Start()
+    {
+        // Get the object's material instance
+        _material = GetComponent<Renderer>().material;
+    }
 
     private void Update()
     {
-        // Calculate angular acceleration from torque
-        float angularAcceleration = torque / inertia;
+        // Prevent invalid moment of inertia
+        if (inertia <= 0f) return;
+
+        // Calculate angular acceleration
+        angularAcceleration = torque / inertia;
 
         // Update angular velocity
         angularVelocity += angularAcceleration * Time.deltaTime;
 
-        // Rotate object
-        transform.Rotate(
-            Vector3.forward * angularVelocity * Time.deltaTime);
+        // Update angular displacement
+        angle += angularVelocity * Time.deltaTime;
+
+        // Keep the angle within one full rotation
+        angle = Mathf.Repeat(angle, 2f * Mathf.PI);
+
+        // Send the angle to Shader Graph
+        _material.SetFloat("_Angle", angle);
+    }
+
+    private void OnDestroy()
+    {
+        // Release the material instance
+        if (_material != null)
+            Destroy(_material);
     }
 }

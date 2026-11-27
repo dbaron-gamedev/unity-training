@@ -3166,8 +3166,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Torque
   torque: 1
-  inertia: 1000
-  angularVelocity: 25
+  inertia: 50
+  angularVelocity: 0
 --- !u!43 &1542725579
 Mesh:
   m_ObjectHideFlags: 0
