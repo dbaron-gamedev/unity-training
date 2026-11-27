@@ -42,11 +42,16 @@ public class Torque : MonoBehaviour
         // Update angular displacement
         angle += angularVelocity * Time.deltaTime;
 
-        // Keep the angle within one full rotation
+        // Keep the angle within one full rotation CLAMPING
         angle = Mathf.Repeat(angle, 2f * Mathf.PI);
 
         // Send the angle to Shader Graph
         _material.SetFloat("_Angle", angle);
+
+
+        float colorRed = angularVelocity;
+
+        _material.SetFloat("_ColorRed", colorRed);
     }
 
     private void OnDestroy()
